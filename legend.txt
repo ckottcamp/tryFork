@@ -1,0 +1,11 @@
+X, Closet, Other
+W, Walkway, Other
+B, Bedroom, Card
+K, Kitchen, Card
+L, Library, Card
+D, Dining Room, Card
+R, Bathroom, Card
+Z, Dungeon, Card
+G, Gaming Room, Card
+V, Living Room, Card
+A, Balcony, Card
