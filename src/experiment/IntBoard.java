@@ -8,6 +8,8 @@ public class IntBoard {
 	private Set<BoardCell> visitedList;
 	private Set<BoardCell> targetList;
 	
+	// TODO: set up static vars for board size
+	
 	public IntBoard() {
 		boardGrid = new BoardCell[21][21];
 		adjList = new HashMap<BoardCell, Set<BoardCell>>();
@@ -29,7 +31,11 @@ public class IntBoard {
 		return null;
 	}
 	
-	public Set<BoardCell> getAdjList() {
+	public Set<BoardCell> getAdjList(BoardCell c) {
+		return null;
+	}
+	
+	public BoardCell getCell(int x, int y) {
 		return null;
 	}
 }
