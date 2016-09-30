@@ -1,15 +1,19 @@
 package experiment;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class IntBoard {
 	private BoardCell[][] boardGrid;
-	private Map<BoardCell, Set<BoardCell>> adjencyList;
+	private Map<BoardCell, Set<BoardCell>> adjList;
 	private Set<BoardCell> visitedList;
 	private Set<BoardCell> targetList;
 	
 	public IntBoard() {
+		boardGrid = new BoardCell[21][21];
+		adjList = new HashMap<BoardCell, Set<BoardCell>>();
+		// TODO: Fix these errors:
+		//visitedList = new Set<BoardCell>();
+		//targetList = new Set<BoardCell>();
 		
 	}
 	
