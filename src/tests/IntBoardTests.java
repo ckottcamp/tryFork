@@ -110,8 +110,10 @@ public class IntBoardTests {
 	 * Number of steps should not exceed 6 (realistic roll of die)
 	 */
 	
+	// Test for three steps
 	@Test
 	public void testTargets0_3() {
+		// Test first location
 		BoardCell cell = board.getCell(0, 0);
 		board.calcTargets(cell, 3);
 		Set targets = board.getTargets();
@@ -122,6 +124,21 @@ public class IntBoardTests {
 		assertTrue(targets.contains(board.getCell(1, 2)));
 		assertTrue(targets.contains(board.getCell(0, 3)));
 		assertTrue(targets.contains(board.getCell(1, 0)));
+		// Test second location
+	}
+	
+	// Test for one step
+	@Test
+	public void testTargets1_1() {
+		// Test first location
+		// Test second location
+	}
+	
+	// test for six steps
+	@Test
+	public void testTargets2_6() {
+		// Test first location
+		// Test second location
 	}
 	
 
