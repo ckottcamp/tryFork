@@ -131,14 +131,34 @@ public class IntBoardTests {
 	@Test
 	public void testTargets1_1() {
 		// Test first location
+		BoardCell cell1 = board.getCell(0, 0);
+		board.calcTargets(cell1, 99999);
+		Set targets1 = board.getTargets();
+		assertEquals(9999, targets1.size());
+		
+		
 		// Test second location
+		BoardCell cell2 = board.getCell(0, 0);
+		board.calcTargets(cell2, 99999);
+		Set targets2 = board.getTargets();
+		assertEquals(9999, targets2.size());
 	}
 	
 	// test for six steps
 	@Test
 	public void testTargets2_6() {
 		// Test first location
+		BoardCell cell1 = board.getCell(0, 0);
+		board.calcTargets(cell1, 99999);
+		Set targets1 = board.getTargets();
+		assertEquals(9999, targets1.size());
+		
+		
 		// Test second location
+		BoardCell cell2 = board.getCell(0, 0);
+		board.calcTargets(cell2, 99999);
+		Set targets2 = board.getTargets();
+		assertEquals(9999, targets2.size());
 	}
 	
 

@@ -8,7 +8,7 @@ public class IntBoard {
 	private Set<BoardCell> visitedList;
 	private Set<BoardCell> targetList;
 	
-	public final static int BOARD_SIZE = 21;
+	public final static int BOARD_SIZE = 4;
 	
 	public IntBoard() {
 		boardGrid = new BoardCell[BOARD_SIZE][BOARD_SIZE];
