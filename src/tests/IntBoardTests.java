@@ -11,13 +11,11 @@ public class IntBoardTests {
 	
 	private IntBoard board;
 	
-	
-	// @Before method to set up your IntBoard.
+	// @Before method to set up IntBoard.
 	@Before
 	public void executedBeforeEach() {
 		board = new IntBoard();
 	}
-	
 	
 	/*
 	 * Test adjacencies for top left corner
@@ -40,7 +38,9 @@ public class IntBoardTests {
 	public void testAdjacency1() {
 		BoardCell cell = board.getCell(3,3);
 		Set<BoardCell> testList = board.getAdjList(cell);
-		fail("Not yet implemented");
+		assertTrue(testList.contains(board.getCell(3, 2)));
+		assertTrue(testList.contains(board.getCell(2, 3)));
+		assertEquals(2, testList.size());
 	}
 	
 	/*
@@ -51,7 +51,10 @@ public class IntBoardTests {
 	public void testAdjacency2() {
 		BoardCell cell = board.getCell(1,3);
 		Set<BoardCell> testList = board.getAdjList(cell);
-		fail("Not yet implemented");
+		assertTrue(testList.contains(board.getCell(0, 3)));
+		assertTrue(testList.contains(board.getCell(1, 2)));
+		assertTrue(testList.contains(board.getCell(2, 3)));
+		assertEquals(3, testList.size());
 	}
 	
 	/*
@@ -62,7 +65,9 @@ public class IntBoardTests {
 	public void testAdjacency3() {
 		BoardCell cell = board.getCell(3,0);
 		Set<BoardCell> testList = board.getAdjList(cell);
-		fail("Not yet implemented");
+		assertTrue(testList.contains(board.getCell(2, 0)));
+		assertTrue(testList.contains(board.getCell(3, 1)));
+		assertEquals(2, testList.size());
 	}
 	
 	/*
@@ -73,7 +78,11 @@ public class IntBoardTests {
 	public void testAdjacency4() {
 		BoardCell cell = board.getCell(1,1);
 		Set<BoardCell> testList = board.getAdjList(cell);
-		fail("Not yet implemented");
+		assertTrue(testList.contains(board.getCell(0, 1)));
+		assertTrue(testList.contains(board.getCell(1, 2)));
+		assertTrue(testList.contains(board.getCell(2, 1)));
+		assertTrue(testList.contains(board.getCell(1, 0)));
+		assertEquals(4, testList.size());
 	}
 	
 	/*
@@ -84,7 +93,11 @@ public class IntBoardTests {
 	public void testAdjacency5() {
 		BoardCell cell = board.getCell(2,2);
 		Set<BoardCell> testList = board.getAdjList(cell);
-		fail("Not yet implemented");
+		assertTrue(testList.contains(board.getCell(1, 2)));
+		assertTrue(testList.contains(board.getCell(2, 3)));
+		assertTrue(testList.contains(board.getCell(3, 2)));
+		assertTrue(testList.contains(board.getCell(2, 1)));
+		assertEquals(4, testList.size());
 	}
 	
 	
