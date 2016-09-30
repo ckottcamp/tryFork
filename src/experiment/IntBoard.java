@@ -29,7 +29,7 @@ public class IntBoard {
 		return null;
 	}
 	
-	public Set<BoardCell>getAdjList() {
+	public Set<BoardCell> getAdjList() {
 		return null;
 	}
 }
