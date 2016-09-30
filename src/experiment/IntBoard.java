@@ -8,10 +8,10 @@ public class IntBoard {
 	private Set<BoardCell> visitedList;
 	private Set<BoardCell> targetList;
 	
-	// TODO: set up static vars for board size
+	public final static int BOARD_SIZE = 21;
 	
 	public IntBoard() {
-		boardGrid = new BoardCell[21][21];
+		boardGrid = new BoardCell[BOARD_SIZE][BOARD_SIZE];
 		adjList = new HashMap<BoardCell, Set<BoardCell>>();
 		// TODO: Fix these errors:
 		//visitedList = new Set<BoardCell>();
