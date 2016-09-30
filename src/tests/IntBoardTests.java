@@ -32,13 +32,14 @@ public class IntBoardTests {
 		assertEquals(2, testList.size());
 	}
 	
-	
 	/*
 	 * Test adjacencies for bottom right corner
 	 * bottom right corner (i.e., location [3][3])
 	 */
 	@Test
 	public void testAdjacency1() {
+		BoardCell cell = board.getCell(3,3);
+		Set<BoardCell> testList = board.getAdjList(cell);
 		fail("Not yet implemented");
 	}
 	
@@ -48,6 +49,8 @@ public class IntBoardTests {
 	 */
 	@Test
 	public void testAdjacency2() {
+		BoardCell cell = board.getCell(1,3);
+		Set<BoardCell> testList = board.getAdjList(cell);
 		fail("Not yet implemented");
 	}
 	
@@ -57,6 +60,8 @@ public class IntBoardTests {
 	 */
 	@Test
 	public void testAdjacency3() {
+		BoardCell cell = board.getCell(3,0);
+		Set<BoardCell> testList = board.getAdjList(cell);
 		fail("Not yet implemented");
 	}
 	
@@ -66,6 +71,8 @@ public class IntBoardTests {
 	 */
 	@Test
 	public void testAdjacency4() {
+		BoardCell cell = board.getCell(1,1);
+		Set<BoardCell> testList = board.getAdjList(cell);
 		fail("Not yet implemented");
 	}
 	
@@ -75,12 +82,15 @@ public class IntBoardTests {
 	 */
 	@Test
 	public void testAdjacency5() {
+		BoardCell cell = board.getCell(2,2);
+		Set<BoardCell> testList = board.getAdjList(cell);
 		fail("Not yet implemented");
 	}
 	
 	
 	
-	
+	//////////////////////////////////////////////////////////////
+	// TEST TARGETS:
 	
 	/*
 	@Test
