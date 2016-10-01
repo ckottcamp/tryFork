@@ -160,14 +160,14 @@ public class IntBoardTests {
 	
 	@Test
 	public void testTargets2_3_1() {
-	// Test second location (2,3)
-			BoardCell cell2 = board.getCell(2, 3);
-			board.calcTargets(cell2, 1);
-			Set targets2 = board.getTargets();
-			assertEquals(3, targets2.size());
-			assertTrue(targets2.contains(board.getCell(1, 3)));
-			assertTrue(targets2.contains(board.getCell(2, 2)));
-			assertTrue(targets2.contains(board.getCell(3, 3)));
+		// Test second location (2,3)
+		BoardCell cell2 = board.getCell(2, 3);
+		board.calcTargets(cell2, 1);
+		Set targets2 = board.getTargets();
+		assertEquals(3, targets2.size());
+		assertTrue(targets2.contains(board.getCell(1, 3)));
+		assertTrue(targets2.contains(board.getCell(2, 2)));
+		assertTrue(targets2.contains(board.getCell(3, 3)));
 	}
 	
 	// test for six steps

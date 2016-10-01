@@ -11,12 +11,7 @@ public class IntBoard {
 	public final static int BOARD_SIZE = 4;
 	
 	public IntBoard() {
-		boardGrid = new BoardCell[BOARD_SIZE][BOARD_SIZE];
-		adjList = new HashMap<BoardCell, Set<BoardCell>>();
-		// TODO: Fix these errors:
-		//visitedList = new Set<BoardCell>();
-		//targetList = new Set<BoardCell>();
-		
+		// TODO: put memory allocations here
 	}
 	
 	public void calcAdjacencies() {
