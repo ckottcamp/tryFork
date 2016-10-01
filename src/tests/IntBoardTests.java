@@ -112,54 +112,94 @@ public class IntBoardTests {
 	
 	// Test for three steps
 	@Test
-	public void testTargets0_3() {
-		// Test first location
-		BoardCell cell = board.getCell(0, 0);
-		board.calcTargets(cell, 3);
-		Set targets = board.getTargets();
-		assertEquals(6, targets.size());
-		assertTrue(targets.contains(board.getCell(3, 0)));
-		assertTrue(targets.contains(board.getCell(2, 1)));
-		assertTrue(targets.contains(board.getCell(0, 1)));
-		assertTrue(targets.contains(board.getCell(1, 2)));
-		assertTrue(targets.contains(board.getCell(0, 3)));
-		assertTrue(targets.contains(board.getCell(1, 0)));
-		// Test second location
+	public void testTargets0_3_3() {
+		// Test first location (0,0)
+		BoardCell cell1 = board.getCell(0, 0);
+		board.calcTargets(cell1, 3);
+		Set targets1 = board.getTargets();
+		assertEquals(3, targets1.size());
+		assertTrue(targets1.contains(board.getCell(3, 0)));
+		assertTrue(targets1.contains(board.getCell(2, 1)));
+		assertTrue(targets1.contains(board.getCell(0, 1)));
+		assertTrue(targets1.contains(board.getCell(1, 2)));
+		assertTrue(targets1.contains(board.getCell(0, 3)));
+		assertTrue(targets1.contains(board.getCell(1, 0)));
 	}
+	
+	@Test
+	public void testTargets2_2_3() {
+		// Test second location (2,2)
+		BoardCell cell2 = board.getCell(2, 2);
+		board.calcTargets(cell2, 3);
+		Set targets2 = board.getTargets();
+		assertEquals(3, targets2.size());
+		assertTrue(targets2.contains(board.getCell(1, 0)));
+		assertTrue(targets2.contains(board.getCell(3, 0)));
+		assertTrue(targets2.contains(board.getCell(0, 1)));
+		assertTrue(targets2.contains(board.getCell(2, 1)));
+		assertTrue(targets2.contains(board.getCell(1, 2)));
+		assertTrue(targets2.contains(board.getCell(3, 2)));
+		assertTrue(targets2.contains(board.getCell(0, 3)));
+		assertTrue(targets2.contains(board.getCell(2, 3)));
+	}
+	
 	
 	// Test for one step
 	@Test
-	public void testTargets1_1() {
-		// Test first location
-		BoardCell cell1 = board.getCell(0, 0);
-		board.calcTargets(cell1, 99999);
+	public void testTargets1_1_1() {
+		// Test first location (1,1)
+		BoardCell cell1 = board.getCell(1, 1);
+		board.calcTargets(cell1, 1);
 		Set targets1 = board.getTargets();
-		assertEquals(9999, targets1.size());
-		
-		
-		// Test second location
-		BoardCell cell2 = board.getCell(0, 0);
-		board.calcTargets(cell2, 99999);
-		Set targets2 = board.getTargets();
-		assertEquals(9999, targets2.size());
+		assertEquals(4, targets1.size());
+		assertTrue(targets1.contains(board.getCell(1, 0)));
+		assertTrue(targets1.contains(board.getCell(0, 1)));
+		assertTrue(targets1.contains(board.getCell(1, 2)));
+		assertTrue(targets1.contains(board.getCell(2, 1)));
+	}
+	
+	@Test
+	public void testTargets2_3_1() {
+	// Test second location (2,3)
+			BoardCell cell2 = board.getCell(2, 3);
+			board.calcTargets(cell2, 1);
+			Set targets2 = board.getTargets();
+			assertEquals(3, targets2.size());
+			assertTrue(targets2.contains(board.getCell(1, 3)));
+			assertTrue(targets2.contains(board.getCell(2, 2)));
+			assertTrue(targets2.contains(board.getCell(3, 3)));
 	}
 	
 	// test for six steps
 	@Test
-	public void testTargets2_6() {
-		// Test first location
-		BoardCell cell1 = board.getCell(0, 0);
-		board.calcTargets(cell1, 99999);
+	public void testTargets2_6_6() {
+		// Test first location (0,3)
+		BoardCell cell1 = board.getCell(0, 3);
+		board.calcTargets(cell1, 6);
 		Set targets1 = board.getTargets();
-		assertEquals(9999, targets1.size());
-		
-		
-		// Test second location
-		BoardCell cell2 = board.getCell(0, 0);
-		board.calcTargets(cell2, 99999);
-		Set targets2 = board.getTargets();
-		assertEquals(9999, targets2.size());
+		assertEquals(7, targets1.size());
+		assertTrue(targets1.contains(board.getCell(1, 0)));
+		assertTrue(targets1.contains(board.getCell(0, 1)));
+		assertTrue(targets1.contains(board.getCell(3, 0)));
+		assertTrue(targets1.contains(board.getCell(2, 1)));
+		assertTrue(targets1.contains(board.getCell(1, 2)));
+		assertTrue(targets1.contains(board.getCell(3, 2)));
+		assertTrue(targets1.contains(board.getCell(2, 3)));
 	}
 	
-
+	@Test
+	public void testTargets1_1_6() {
+		// Test second location (1,1)
+		BoardCell cell2 = board.getCell(1, 1);
+		board.calcTargets(cell2, 6);
+		Set targets2 = board.getTargets();
+		assertEquals(7, targets2.size());
+		assertTrue(targets2.contains(board.getCell(0, 0)));
+		assertTrue(targets2.contains(board.getCell(2, 0)));
+		assertTrue(targets2.contains(board.getCell(3, 1)));
+		assertTrue(targets2.contains(board.getCell(0, 2)));
+		assertTrue(targets2.contains(board.getCell(2, 2)));
+		assertTrue(targets2.contains(board.getCell(1, 3)));
+		assertTrue(targets2.contains(board.getCell(3, 3)));
+	}
 }

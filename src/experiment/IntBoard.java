@@ -31,7 +31,7 @@ public class IntBoard {
 		return null;
 	}
 	
-	public Set<BoardCell> getAdjList(BoardCell c) {
+	public Set<BoardCell> getAdjList(BoardCell currentCell) {
 		return null;
 	}
 	
