@@ -11,7 +11,11 @@ public class IntBoard {
 	public final static int BOARD_SIZE = 4;
 	
 	public IntBoard() {
-		// TODO: put memory allocations here
+		boardGrid = new BoardCell[BOARD_SIZE][BOARD_SIZE];
+		adjList = new HashMap<BoardCell, Set<BoardCell>>();
+		// TODO: should these be TreeSets or something eles?????
+		visitedList = new TreeSet<BoardCell>();
+		targetList = new TreeSet<BoardCell>();
 	}
 	
 	public void calcAdjacencies() {
@@ -23,14 +27,14 @@ public class IntBoard {
 	}
 	
 	public Set<BoardCell> getTargets() {
-		return null;
+		return targetList;
 	}
 	
 	public Set<BoardCell> getAdjList(BoardCell currentCell) {
-		return null;
+		return adjList.get(currentCell);
 	}
 	
 	public BoardCell getCell(int x, int y) {
-		return null;
+		return boardGrid[x][y];
 	}
 }
