@@ -46,11 +46,26 @@ public class IntBoard {
 		}
 		return;
 	}
-	
+
 	public void calcTargets(BoardCell startCell, int pathLength) {
-		
-		// TODO: WRITE ME
-		
+		visitedList.add(startCell);
+		for (BoardCell tempCell : adjList.get(startCell)) {
+			if (visitedList.contains(tempCell)) {
+				continue;
+			} else {
+				visitedList.add(tempCell);
+				if (pathLength == 1) {
+					targetList.add(tempCell);
+					visitedList.remove(tempCell);
+					continue;
+				} else {
+					calcTargets(tempCell, pathLength - 1);
+				}
+					visitedList.remove(tempCell);
+			}
+			
+
+		}
 		return;
 	}
 	
@@ -65,4 +80,5 @@ public class IntBoard {
 	public BoardCell getCell(int row, int col) {
 		return boardGrid[row][col];
 	}
+	
 }
