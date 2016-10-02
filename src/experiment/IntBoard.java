@@ -32,6 +32,7 @@ public class IntBoard {
 		for (int x=0; x<BOARD_SIZE; x++) {
 			for (int y=0; y<BOARD_SIZE; y++) {
 				Set<BoardCell> tempAdj = new HashSet<BoardCell>();
+				// TODO: we will need to add && cellType == walkable later
 				// add 1
 				if (x>0){tempAdj.add(boardGrid[y][x-1]);}
 				// add 2
