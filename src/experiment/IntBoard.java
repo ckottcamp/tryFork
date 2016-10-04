@@ -2,6 +2,8 @@ package experiment;
 
 import java.util.*;
 
+import clueGame.BoardCell;
+
 public class IntBoard {
 	private BoardCell[][] boardGrid;
 	private Map<BoardCell, Set<BoardCell>> adjList;
