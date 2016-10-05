@@ -42,9 +42,16 @@ public class FileLoadTests {
 		// from the hash, including the first and last in the file and a few others
 		assertEquals("Closet", legend.get('X'));
 		assertEquals("Walkway", legend.get('W'));
-		assertEquals("Balcony", legend.get('A'));
-		assertEquals("Dungeon", legend.get('Z'));
+		assertEquals("Bedroom", legend.get('B'));
+		assertEquals("Kitchen", legend.get('K'));
+		assertEquals("Library", legend.get('L'));
 		assertEquals("Dining Room", legend.get('D'));
+		assertEquals("Bathroom", legend.get('R'));
+		assertEquals("Dungeon", legend.get('Z'));
+		assertEquals("Gaming Room", legend.get('G'));
+		assertEquals("Living Room", legend.get('V'));
+		assertEquals("Balcony", legend.get('A'));
+		
 	}
 	
 	/**
