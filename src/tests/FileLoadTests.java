@@ -126,6 +126,7 @@ public class FileLoadTests {
 	 */
 	@Test
 	public void testRoomInitials() {
+		// Test room cells that are not doors
 		assertEquals('L', board.getCellAt(0, 0).getInitial());
 		assertEquals('V', board.getCellAt(2, 10).getInitial());
 		assertEquals('D', board.getCellAt(3, 17).getInitial());
@@ -135,6 +136,11 @@ public class FileLoadTests {
 		assertEquals('R', board.getCellAt(18, 18).getInitial());
 		assertEquals('Z', board.getCellAt(18, 2).getInitial());
 		assertEquals('X', board.getCellAt(9,13).getInitial());
+		// Now test room cells that are also doors
+		assertEquals('Z', board.getCellAt(17,0).getInitial());
+		assertEquals('D', board.getCellAt(3,19).getInitial());
+		
+		
 	}
 	
 }
