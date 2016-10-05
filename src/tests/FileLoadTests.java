@@ -22,7 +22,7 @@ public class FileLoadTests {
 	public static void setUp() {
 		// Board is singleton, get the only instance
 		board = Board.getInstance();
-		// set the file names to use my config files
+		// set the file names to use our config files
 		board.setConfigFiles("clueBoard.csv", "legend.txt");		
 		// Initialize will load BOTH config files 
 		board.initialize();
