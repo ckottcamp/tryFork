@@ -16,7 +16,7 @@ public class IntBoard {
 		boardGrid = new BoardCell[BOARD_SIZE][BOARD_SIZE];
 		for (int x=0; x<BOARD_SIZE; x++) {
 			for (int y=0; y<BOARD_SIZE; y++) {
-				boardGrid[y][x] = new BoardCell(y,x);
+				//boardGrid[y][x] = new BoardCell(y,x);
 			}
 		}
 		adjList = new HashMap<BoardCell, Set<BoardCell>>();
