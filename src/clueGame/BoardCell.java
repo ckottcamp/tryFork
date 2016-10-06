@@ -33,14 +33,22 @@ public class BoardCell {
 	}
 	
 	public boolean isWalkway() {
+		if (initial == 'W' || initial == 'w'){
+			return true;
+		}
 		return false;
 	}
 	
 	public boolean isRoom() {
-		return false;
+		// TODO: is this correct?
+		// My logic is that if something is not a walkway then it must be a room
+		return !this.isWalkway();
 	}
 	
 	public boolean isDoorway() {
+		if (direction != DoorDirection.NONE) {
+			return true;
+		}
 		return false;
 	}
 
@@ -52,9 +60,5 @@ public class BoardCell {
 		return initial;
 	}
 
-	@Override
-	public String toString() {
-		return "BoardCell [row=" + row + ", col=" + col + ", initial=" + initial + ", direction=" + direction + "]";
-	}
 
 }
