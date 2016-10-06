@@ -30,7 +30,8 @@ public class FileLoadTests {
 	@Test
 	public void testRooms() {
 		Map<Character, String> legend = board.getLegend();
-		assertEquals(LEGEND_SIZE, legend.size());			//Checks for the right # of rooms
+		//Checks for the right # of rooms
+		assertEquals(LEGEND_SIZE, legend.size());
 
 		//Checks all rooms in the legend
 		assertEquals("Closet", legend.get('X'));

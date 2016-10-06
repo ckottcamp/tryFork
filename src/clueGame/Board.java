@@ -8,7 +8,7 @@ public class Board {
 	public static final int MAX_BOARD_SIZE= 50;
 	private int numRows;
 	private int numColumns;
-	private BoardCell[][] board = new BoardCell[numRows][numColumns];
+	private BoardCell[][] board = new BoardCell[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
 	private Map<Character, String> rooms = new HashMap<Character, String>();
 	private Map<BoardCell, Set<BoardCell>> adjMatrix;
 	private Set<BoardCell> targets;
@@ -37,7 +37,7 @@ public class Board {
 		while (tempScanner.hasNextLine()) {
 			String tempString = tempScanner.nextLine();
 			String[] legendArray = new String[3];
-			legendArray = tempString.split(", ");
+			legendArray = tempString.split(", "); // NOTE: Delimiter is ", "
 			rooms.put(legendArray[0].charAt(0), legendArray[1]);
 		}
 	}
@@ -49,9 +49,9 @@ public class Board {
 		while (tempScanner.hasNextLine()) {
 			String tempString = tempScanner.nextLine();
 			String[] boardArray = new String[MAX_BOARD_SIZE];
-			boardArray = tempString.split(", ");
+			boardArray = tempString.split(","); // NOTE: CSV file delimiter is "," not ", "
 			numColumns = boardArray.length;
-			for (int i = 0; i < numColumns; ++i) {
+			for (int i = 0; i < numColumns; i++) {
 				BoardCell tempCell = new BoardCell(j,i,boardArray[i]);
 				board[j][i] = tempCell;
 			}
