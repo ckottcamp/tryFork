@@ -9,22 +9,17 @@ import java.util.*;
 import clueGame.*;
 
 public class FileLoadTests {
-	// Constants that I will use to test whether the file was loaded correctly
+	// Constants that we will use to test whether the file was loaded correctly
 	public static final int LEGEND_SIZE = 11;
 	public static final int NUM_ROWS = 22;
 	public static final int NUM_COLUMNS = 23;
 
-	// NOTE: Board static because I only want to set it up one 
-	// time (using @BeforeClass), no need to do setup before each test.
 	private static Board board;
 	
 	@BeforeClass
 	public static void setUp() {
-		// Board is singleton, get the only instance
 		board = Board.getInstance();
-		// set the file names to use our config files
 		board.setConfigFiles("clueBoard.csv", "legend.txt");		
-		// Initialize will load BOTH config files 
 		board.initialize();
 	}
 	
@@ -34,12 +29,10 @@ public class FileLoadTests {
 	 */
 	@Test
 	public void testRooms() {
-		// Get the map of initial => room 
 		Map<Character, String> legend = board.getLegend();
-		// Ensure we read the correct number of rooms
-		assertEquals(LEGEND_SIZE, legend.size());
-		// To ensure data is correctly loaded, test retrieving a few rooms 
-		// from the hash, including the first and last in the file and a few others
+		assertEquals(LEGEND_SIZE, legend.size());			//Checks for the right # of rooms
+
+		//Checks all rooms in the legend
 		assertEquals("Closet", legend.get('X'));
 		assertEquals("Walkway", legend.get('W'));
 		assertEquals("Bedroom", legend.get('B'));
@@ -59,7 +52,6 @@ public class FileLoadTests {
 	 */
 	@Test
 	public void testBoardDimensions() {
-		// Ensure we have the proper number of rows and columns
 		assertEquals(NUM_ROWS, board.getNumRows());
 		assertEquals(NUM_COLUMNS, board.getNumColumns());		
 	}
@@ -75,7 +67,7 @@ public class FileLoadTests {
 	@Test
 	public void FourDoorDirections() {
 		// LR
-		BoardCell c = board.getCellAt(2, 3);
+		BoardCell c = board.getCellAt(3, 2);
 		assertTrue(c.isDoorway());
 		assertEquals(DoorDirection.RIGHT, c.getDoorDirection());
 		// VD
@@ -90,7 +82,6 @@ public class FileLoadTests {
 		c = board.getCellAt(17, 0);
 		assertTrue(c.isDoorway());
 		assertEquals(DoorDirection.UP, c.getDoorDirection());
-		
 		// Test that room pieces that aren't doors know it
 		c = board.getCellAt(0, 0);
 		assertFalse(c.isDoorway());	
