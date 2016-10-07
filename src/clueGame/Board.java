@@ -30,7 +30,6 @@ public class Board {
 			e.printStackTrace();
 		}
 		catch (BadConfigFormatException f) {
-			System.out.println("hereff");
 			f.printStackTrace();
 		}
 	}
@@ -44,8 +43,8 @@ public class Board {
 			legendArray = tempString.split(", "); // NOTE: Delimiter is ", "
 			rooms.put(legendArray[0].charAt(0), legendArray[1]);
 			
-			
-			if (!legendArray[2].equalsIgnoreCase("Card") && !legendArray[2].equalsIgnoreCase("Other")) {
+			if (!legendArray[2].equalsIgnoreCase("Card") && 
+					!legendArray[2].equalsIgnoreCase("Other") ){
 				throw new BadConfigFormatException(roomConfigFile);
 			}
 			
@@ -62,8 +61,7 @@ public class Board {
 			boardArray = tempString.split(","); // NOTE: CSV file delimiter is "," not ", "
 			numColumns = boardArray.length;
 			for (int i = 0; i < numColumns; i++) {
-				BoardCell tempCell = new BoardCell(j,i,boardArray[i]);
-				board[j][i] = tempCell;
+				board[j][i] = new BoardCell(j,i,boardArray[i]);
 			}
 			j++;
 		}
@@ -76,7 +74,7 @@ public class Board {
 		}
 		for (int i = 0; i < numRows; ++i) {
 			for (int k = 0; k < numColumns; ++k) {
-				if (rooms.containsKey(board[i][k]) == false) {
+				if (rooms.containsKey(board[i][k].getInitial()) == false) {
 					throw new BadConfigFormatException(boardConfigFile);
 				}
 			}
