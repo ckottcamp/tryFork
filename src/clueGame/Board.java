@@ -29,9 +29,12 @@ public class Board {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		catch (BadConfigFormatException f) {
+			f.printStackTrace();
+		}
 	}
 	
-	public void loadRoomConfig() throws FileNotFoundException {
+	public void loadRoomConfig() throws FileNotFoundException, BadConfigFormatException {
 		FileReader roomFile = new FileReader(roomConfigFile);
 		Scanner tempScanner = new Scanner(roomFile);
 		while (tempScanner.hasNextLine()) {
@@ -39,10 +42,14 @@ public class Board {
 			String[] legendArray = new String[3];
 			legendArray = tempString.split(", "); // NOTE: Delimiter is ", "
 			rooms.put(legendArray[0].charAt(0), legendArray[1]);
+			
+			if (legendArray[2] != "Card" && legendArray[2] != "Other") {
+			//	throw new BadConfigFormatException(roomConfigFile);
+			}
 		}
 	}
 	
-	public void loadBoardConfig() throws FileNotFoundException {
+	public void loadBoardConfig() throws FileNotFoundException, BadConfigFormatException {
 		FileReader boardFile = new FileReader(boardConfigFile);
 		Scanner tempScanner = new Scanner(boardFile);
 		int j = 0;
@@ -58,14 +65,27 @@ public class Board {
 			j++;
 		}
 		numRows = j;
+		for (int i = 0; i < numRows - 1; ++i) {
+			if (board[i].length != board[i + 1].length) {				// Makes sure that every row has the same number of columns
+				System.out.println();
+				throw new BadConfigFormatException(boardConfigFile);
+			}
+		}
+		for (int i = 0; i < numRows; ++i) {
+			for (int k = 0; k < numColumns; ++k) {
+				if (rooms.containsKey(board[i][k]) == false) {
+					throw new BadConfigFormatException(boardConfigFile);
+				}
+			}
+		}
 	}
 	
 	public void calcAdjacencies() {
-		
+		// This function will be completed, but at a later date during Section III
 	}
 	
 	public void calcTargets(BoardCell cell, int pathlength) {
-		
+		// This function will be completed, but at a later date during Section III		
 	}	
 	
 	public BoardCell getCellAt(int i, int j) {
