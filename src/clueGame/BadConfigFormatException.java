@@ -12,7 +12,7 @@ public class BadConfigFormatException extends Exception {
 	public BadConfigFormatException(String fileName) {
 		super("Bad config format on file: " + fileName);
 		try {
-			PrintWriter logFile = new PrintWriter("Exceptions log.txt");
+			PrintWriter logFile = new PrintWriter("ExceptionsLog.txt");
 			logFile.println("Bad config format on file: '" + fileName + "'. Please check the file format and run program again.");
 			logFile.close();
 		} catch (FileNotFoundException e) {

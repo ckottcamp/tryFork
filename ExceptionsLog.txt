@@ -1,0 +1,1 @@
+Bad config format on file: 'CR_ClueLayout.csv'. Please check the file format and run program again.

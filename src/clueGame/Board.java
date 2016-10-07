@@ -30,6 +30,7 @@ public class Board {
 			e.printStackTrace();
 		}
 		catch (BadConfigFormatException f) {
+			System.out.println("hereff");
 			f.printStackTrace();
 		}
 	}
@@ -43,9 +44,11 @@ public class Board {
 			legendArray = tempString.split(", "); // NOTE: Delimiter is ", "
 			rooms.put(legendArray[0].charAt(0), legendArray[1]);
 			
-			if (legendArray[2] != "Card" && legendArray[2] != "Other") {
-			//	throw new BadConfigFormatException(roomConfigFile);
+			
+			if (!legendArray[2].equalsIgnoreCase("Card") && !legendArray[2].equalsIgnoreCase("Other")) {
+				throw new BadConfigFormatException(roomConfigFile);
 			}
+			
 		}
 	}
 	
