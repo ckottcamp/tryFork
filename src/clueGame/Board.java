@@ -67,7 +67,8 @@ public class Board {
 		}
 		numRows = j;
 		for (int i = 0; i < numRows - 1; ++i) {
-			if (board[i].length != board[i + 1].length) {				// Makes sure that every row has the same number of columns
+			if (board[i].length != board[i + 1].length) {				
+				// Makes sure that every row has the same number of columns
 				System.out.println();
 				throw new BadConfigFormatException(boardConfigFile);
 			}
