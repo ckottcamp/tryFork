@@ -58,7 +58,8 @@ public class Board {
 		while (tempScanner.hasNextLine()) {
 			String tempString = tempScanner.nextLine();
 			String[] boardArray = new String[MAX_BOARD_SIZE];
-			boardArray = tempString.split(","); // NOTE: CSV file delimiter is "," not ", "
+			// NOTE: CSV file delimiter is "," not ", "
+			boardArray = tempString.split(",");
 			if (numColumns != 0 && boardArray.length != numColumns) {
 				// Makes sure that every row has the same number of columns
 				throw new BadConfigFormatException(boardConfigFile);
@@ -74,6 +75,7 @@ public class Board {
 		for (int i = 0; i < numRows; ++i) {
 			for (int k = 0; k < numColumns; ++k) {
 				if (rooms.containsKey(board[i][k].getInitial()) == false) {
+					// Make sure each room is contained in the legend
 					throw new BadConfigFormatException(boardConfigFile);
 				}
 			}
