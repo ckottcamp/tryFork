@@ -59,6 +59,10 @@ public class Board {
 			String tempString = tempScanner.nextLine();
 			String[] boardArray = new String[MAX_BOARD_SIZE];
 			boardArray = tempString.split(","); // NOTE: CSV file delimiter is "," not ", "
+			if (numColumns != 0 && boardArray.length != numColumns) {
+				// Makes sure that every row has the same number of columns
+				throw new BadConfigFormatException(boardConfigFile);
+			}
 			numColumns = boardArray.length;
 			for (int i = 0; i < numColumns; i++) {
 				board[j][i] = new BoardCell(j,i,boardArray[i]);
@@ -66,13 +70,7 @@ public class Board {
 			j++;
 		}
 		numRows = j;
-		for (int i = 0; i < numRows - 1; ++i) {
-			if (board[i].length != board[i + 1].length) {				
-				// Makes sure that every row has the same number of columns
-				System.out.println();
-				throw new BadConfigFormatException(boardConfigFile);
-			}
-		}
+		
 		for (int i = 0; i < numRows; ++i) {
 			for (int k = 0; k < numColumns; ++k) {
 				if (rooms.containsKey(board[i][k].getInitial()) == false) {
