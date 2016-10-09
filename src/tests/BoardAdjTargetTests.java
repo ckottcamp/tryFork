@@ -13,6 +13,10 @@ import clueGame.BoardCell;
 public class BoardAdjTargetTests {
 
 	private static Board gameBoard;
+	
+	/**
+	 * Runs before the entire class. Initializes a single game board
+	 */
 	@BeforeClass
 	public static void testSetUp() {
 		gameBoard = Board.getInstance();
@@ -20,9 +24,10 @@ public class BoardAdjTargetTests {
 		gameBoard.initialize();
 	}
 
-	
-	//This set of tests will test the various walkway situations.
-	//EXCEL COLOR CODE: ORANGE
+	/**
+	 * This set of tests will test the various walkway situations.
+	 * EXCEL COLOR CODE: ORANGE
+	 */
 	@Test
 	public void testWalkwayAdjacency() {
 		//This tests a walkway cell that has only other walkway cells adjacent to it
@@ -66,8 +71,10 @@ public class BoardAdjTargetTests {
 		//for that situation
 	}
 	
-	//This tests adjacency for walkway cells that are next to a room cell that is NOT a doorway
-	//EXCEL COLOR CODE: PURPLE
+	/**
+	 * This tests adjacency for walkway cells that are next to a room cell that is NOT a doorway
+	 * EXCEL COLOR CODE: PURPLE
+	 */
 	@Test
 	public void testRoomCellNoDoor() {
 		//Tests between two rooms
@@ -84,10 +91,11 @@ public class BoardAdjTargetTests {
 		
 	}
 	
-	
-	//This test will check to see if cells that are adjacent to doorways with the proper
-	//direction will actually include the doors in the adjacency lists
-	//EXCEL COLOR CODE: GREEN
+	/**
+	 * This test will check to see if cells that are adjacent to doorways with the proper
+	 * direction will actually include the doors in the adjacency lists
+	 * EXCEL COLOR CODE: GREEN
+	 */
 	@Test
 	public void testWalkwayDoorAdjacency() {
 		//Door is on the left
@@ -121,9 +129,10 @@ public class BoardAdjTargetTests {
 		
 	}
 	
-	//This test makes sure that cells that are doorways themselves will only have one
-	//cell in their adjacency lists.
-	//EXCEL COLOR CODE: BROWN
+	/** This test makes sure that cells that are doorways themselves will only have one
+	 * cell in their adjacency lists.
+	 * EXCEL COLOR CODE: BROWN
+	 */
 	@Test
 	public void testDoorAdjacency() {
 		Set<BoardCell> testSet = gameBoard.getAdjList(9, 5);
@@ -135,9 +144,11 @@ public class BoardAdjTargetTests {
 		assertTrue(testSet.contains(gameBoard.getCellAt(2, 20)));
 	}
 	
-	//This test makes sure that there are no "adjacent cells" within a room.
-	//i.e. the player cannot move inside of a room
-	//EXCEL COLOR CODE: BLACK
+	/**
+	 * This test makes sure that there are no "adjacent cells" within a room.
+	 * i.e. the player cannot move inside of a room
+	 * EXCEL COLOR CODE: BLACK
+	 */
 	@Test
 	public void testAdjacencyInRoom() {
 		//Tests for a walkway above
@@ -158,13 +169,8 @@ public class BoardAdjTargetTests {
 	}
 	
 	
-	//This set of tests will test the target selection algorithm
 	
-	
-	
-	
-	
-	/****Targets along walkways, at various distances****/
+	// Targets along walkways, at various distances //
 	
 	/** 
 	 * Tests of just walkways, 1 STEP, includes on edge of board
@@ -288,7 +294,7 @@ public class BoardAdjTargetTests {
 	}
 	
 	
-	/**** Targets that allow the user to enter a room ****/
+	// Targets that allow the user to enter a room //
 	
 	/** 
 	 * Tests of just walkways, Make sure a door is a target
@@ -326,12 +332,10 @@ public class BoardAdjTargetTests {
 		// doors on left
 		assertTrue(targets.contains(gameBoard.getCellAt(3, 19)));
 		assertTrue(targets.contains(gameBoard.getCellAt(2, 19)));
-				
-		
 	}
 	
-	/**** Targets calculated when leaving a room ****/
 	
+	// Targets calculated when leaving a room //
 	
 	/** 
 	 * Test getting out of a room
