@@ -32,6 +32,8 @@ public class Board {
 		catch (BadConfigFormatException f) {
 			f.printStackTrace();
 		}
+		this.calcAdjacencies();
+		
 	}
 	
 	public void loadRoomConfig() throws FileNotFoundException, BadConfigFormatException {
@@ -86,6 +88,7 @@ public class Board {
 		// This function will be completed, but at a later date during Section III
 		/*
 		 * COPIED FROM INTBOARD
+		 * 
 		 * 	x->cols
 		 *	y	 		2
 		 *	| 		1	c	3
