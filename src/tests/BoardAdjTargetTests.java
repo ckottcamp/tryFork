@@ -10,7 +10,7 @@ import org.junit.Test;
 import clueGame.Board;
 import clueGame.BoardCell;
 
-public class GameBoardAdjacentTargetTests {
+public class BoardAdjTargetTests {
 
 	private static Board gameBoard;
 	@BeforeClass
