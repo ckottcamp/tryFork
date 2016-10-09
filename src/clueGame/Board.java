@@ -51,6 +51,8 @@ public class Board {
 		}
 	}
 	
+	//test
+	
 	public void loadBoardConfig() throws FileNotFoundException, BadConfigFormatException {
 		FileReader boardFile = new FileReader(boardConfigFile);
 		Scanner tempScanner = new Scanner(boardFile);
