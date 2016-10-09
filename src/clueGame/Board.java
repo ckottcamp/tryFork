@@ -51,8 +51,6 @@ public class Board {
 		}
 	}
 	
-	//test
-	
 	public void loadBoardConfig() throws FileNotFoundException, BadConfigFormatException {
 		FileReader boardFile = new FileReader(boardConfigFile);
 		Scanner tempScanner = new Scanner(boardFile);
@@ -111,5 +109,10 @@ public class Board {
 	
 	public int getNumColumns() {
 		return numColumns;
+	}
+	
+	public Set<BoardCell> getAdjList(int x, int y) {
+		Set<BoardCell> adjList = new HashSet<BoardCell>();
+		return adjList;
 	}
 }
