@@ -84,10 +84,61 @@ public class Board {
 	
 	public void calcAdjacencies() {
 		// This function will be completed, but at a later date during Section III
+		/*
+		 * COPIED FROM INTBOARD
+		 * 	x->cols
+		 *	y	 		2
+		 *	| 		1	c	3
+		 *	v 			4
+		 *rows
+		 
+		for (int x=0; x<BOARD_SIZE; x++) {
+			for (int y=0; y<BOARD_SIZE; y++) {
+				Set<BoardCell> tempAdj = new HashSet<BoardCell>();
+				// TODO: we will need to add && cellType == walkable later
+				// add 1
+				if (x>0){tempAdj.add(boardGrid[y][x-1]);}
+				// add 2
+				if (y>0){tempAdj.add(boardGrid[y-1][x]);}
+				// add 3
+				if (x<BOARD_SIZE - 1){tempAdj.add(boardGrid[y][x+1]);}
+				// add 4
+				if (y<BOARD_SIZE - 1){tempAdj.add(boardGrid[y+1][x]);}
+				adjList.put(boardGrid[y][x], tempAdj);
+			}
+		}
+		return;
+		 */
+		
+		
 	}
 	
 	public void calcTargets(BoardCell cell, int pathlength) {
 		// This function will be completed, but at a later date during Section III		
+		
+		/*
+		 * COPIED FROM INTBOARD
+		 * 
+		visitedList.add(startCell);
+		for (BoardCell tempCell : adjList.get(startCell)) {
+			if (visitedList.contains(tempCell)) {
+				continue;
+			} else {
+				visitedList.add(tempCell);
+				if (pathLength == 1) {
+					targetList.add(tempCell);
+					visitedList.remove(tempCell);
+					continue;
+				} else {
+					calcTargets(tempCell, pathLength - 1);
+				}
+					visitedList.remove(tempCell);
+			}
+			
+
+		}
+		return;
+		 */
 	}	
 	
 	public BoardCell getCellAt(int i, int j) {
