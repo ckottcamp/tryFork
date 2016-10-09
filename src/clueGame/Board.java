@@ -16,7 +16,6 @@ public class Board {
 	private String roomConfigFile;
 	
 	private static Board gameBoard = new Board();
-	//rooms = new HashMap<Character, String>();
 	private Board() {}	
 	public static Board getInstance() {
 		return gameBoard;
@@ -168,5 +167,9 @@ public class Board {
 	public Set<BoardCell> getAdjList(int x, int y) {
 		Set<BoardCell> adjList = new HashSet<BoardCell>();
 		return adjList;
+	}
+	
+	public Set<BoardCell> getTargets() {
+		return targets;
 	}
 }
