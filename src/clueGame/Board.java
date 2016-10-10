@@ -68,19 +68,14 @@ public class Board {
 			numColumns = boardArray.length;
 			for (int i = 0; i < numColumns; i++) {
 				board[j][i] = new BoardCell(j,i,boardArray[i]);
-			}
-			j++;
-		}
-		numRows = j;
-		
-		for (int i = 0; i < numRows; ++i) {
-			for (int k = 0; k < numColumns; ++k) {
-				if (rooms.containsKey(board[i][k].getInitial()) == false) {
+				if (rooms.containsKey(board[j][i].getInitial()) == false) {
 					// Make sure each room is contained in the legend
 					throw new BadConfigFormatException(boardConfigFile);
 				}
 			}
+			j++;
 		}
+		numRows = j;
 	}
 	
 	public void calcAdjacencies() {
