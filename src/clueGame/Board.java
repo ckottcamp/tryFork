@@ -93,24 +93,25 @@ public class Board {
 		 *	| 		1	c	3
 		 *	v 			4
 		 *rows
+		 *
 		 
-		for (int x=0; x<BOARD_SIZE; x++) {
-			for (int y=0; y<BOARD_SIZE; y++) {
+		for (int x=0; x<numRows; x++) {
+			for (int y=0; y<numColumns; y++) {
 				Set<BoardCell> tempAdj = new HashSet<BoardCell>();
 				// TODO: we will need to add && cellType == walkable later
 				// add 1
-				if (x>0){tempAdj.add(boardGrid[y][x-1]);}
+				if (x>0){tempAdj.add(board[y][x-1]);}
 				// add 2
-				if (y>0){tempAdj.add(boardGrid[y-1][x]);}
+				if (y>0){tempAdj.add(board[y-1][x]);}
 				// add 3
-				if (x<BOARD_SIZE - 1){tempAdj.add(boardGrid[y][x+1]);}
+				if (x<numRows - 1){tempAdj.add(board[y][x+1]);}
 				// add 4
-				if (y<BOARD_SIZE - 1){tempAdj.add(boardGrid[y+1][x]);}
-				adjList.put(boardGrid[y][x], tempAdj);
+				if (y<numColumns - 1){tempAdj.add(board[y+1][x]);}
+				adjMatrix.put(board[y][x], tempAdj);
 			}
 		}
 		return;
-		 */
+		*/
 		
 		
 	}
