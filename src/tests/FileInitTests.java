@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.*;
 import clueGame.*;
 
-public class FileLoadTests {
+public class FileInitTests {
 	// Constants that we will use to test whether the file was loaded correctly
 	public static final int LEGEND_SIZE = 11;
 	public static final int NUM_ROWS = 22;
