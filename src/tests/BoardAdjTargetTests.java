@@ -198,7 +198,7 @@ public class BoardAdjTargetTests {
 	 */
 	@Test
 	public void testTargetsTwoSteps() {
-		gameBoard.calcTargets(13, 18, 1);
+		gameBoard.calcTargets(13, 18, 2);
 		Set<BoardCell> targets= gameBoard.getTargets();
 		assertEquals(4, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(13, 16)));
@@ -206,7 +206,7 @@ public class BoardAdjTargetTests {
 		assertTrue(targets.contains(gameBoard.getCellAt(13, 20)));
 		assertTrue(targets.contains(gameBoard.getCellAt(14, 19)));
 		
-		gameBoard.calcTargets(21, 19, 1);
+		gameBoard.calcTargets(21, 19, 2);
 		targets= gameBoard.getTargets();
 		assertEquals(1, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(19, 19)));
@@ -218,7 +218,7 @@ public class BoardAdjTargetTests {
 	 */
 	@Test
 	public void testTargetsThreeSteps() {
-		gameBoard.calcTargets(13, 18, 1);
+		gameBoard.calcTargets(13, 18, 3);
 		Set<BoardCell> targets= gameBoard.getTargets();
 		assertEquals(5, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(11, 17)));
@@ -227,7 +227,7 @@ public class BoardAdjTargetTests {
 		assertTrue(targets.contains(gameBoard.getCellAt(13, 21)));
 		assertTrue(targets.contains(gameBoard.getCellAt(15, 19)));
 		
-		gameBoard.calcTargets(21, 19, 1);
+		gameBoard.calcTargets(21, 19, 3);
 		targets= gameBoard.getTargets();
 		assertEquals(1, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(18, 19)));
@@ -239,12 +239,12 @@ public class BoardAdjTargetTests {
 	 */
 	@Test
 	public void testTargetsFiveSteps() {
-		gameBoard.calcTargets(13, 18, 1);
+		gameBoard.calcTargets(13, 18, 5);
 		Set<BoardCell> targets= gameBoard.getTargets();
 		assertEquals(12, targets.size()); //erga
 		assertTrue(targets.contains(gameBoard.getCellAt(9, 17)));
 		assertTrue(targets.contains(gameBoard.getCellAt(11, 17)));
-		assertTrue(targets.contains(gameBoard.getCellAt(11, 16)));
+		assertTrue(targets.contains(gameBoard.getCellAt(12, 16)));
 		assertTrue(targets.contains(gameBoard.getCellAt(10, 16)));
 		assertTrue(targets.contains(gameBoard.getCellAt(10, 18)));
 		assertTrue(targets.contains(gameBoard.getCellAt(13, 13)));
@@ -255,7 +255,7 @@ public class BoardAdjTargetTests {
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 20)));
 		assertTrue(targets.contains(gameBoard.getCellAt(17, 29)));
 		
-		gameBoard.calcTargets(21, 19, 1);
+		gameBoard.calcTargets(21, 19, 5);
 		targets= gameBoard.getTargets();
 		assertEquals(1, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 19)));
@@ -267,7 +267,7 @@ public class BoardAdjTargetTests {
 	 */
 	@Test
 	public void testTargetsSixSteps() {
-		gameBoard.calcTargets(13, 18, 1);
+		gameBoard.calcTargets(13, 18, 6);
 		Set<BoardCell> targets= gameBoard.getTargets();
 		assertEquals(14, targets.size()); //erga
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 21)));
@@ -285,7 +285,7 @@ public class BoardAdjTargetTests {
 		assertTrue(targets.contains(gameBoard.getCellAt(9, 18)));
 		assertTrue(targets.contains(gameBoard.getCellAt(8, 17)));
 	
-		gameBoard.calcTargets(21, 19, 1);
+		gameBoard.calcTargets(21, 19, 6);
 		targets= gameBoard.getTargets();
 		assertEquals(3, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 18)));
