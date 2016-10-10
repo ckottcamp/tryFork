@@ -171,6 +171,7 @@ public class BoardAdjTargetTests {
 	
 	
 	// Targets along walkways, at various distances //
+	// Note: there is one extra testTargetXxxxSteps function (5/4)
 	
 	/** 
 	 * Tests of just walkways, 1 STEP, includes on edge of board
@@ -241,7 +242,7 @@ public class BoardAdjTargetTests {
 	public void testTargetsFiveSteps() {
 		gameBoard.calcTargets(13, 18, 5);
 		Set<BoardCell> targets= gameBoard.getTargets();
-		assertEquals(12, targets.size()); //erga
+		assertEquals(12, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(9, 17)));
 		assertTrue(targets.contains(gameBoard.getCellAt(11, 17)));
 		assertTrue(targets.contains(gameBoard.getCellAt(12, 16)));
@@ -269,7 +270,7 @@ public class BoardAdjTargetTests {
 	public void testTargetsSixSteps() {
 		gameBoard.calcTargets(13, 18, 6);
 		Set<BoardCell> targets= gameBoard.getTargets();
-		assertEquals(14, targets.size()); //erga
+		assertEquals(14, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 21)));
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 17)));
 		assertTrue(targets.contains(gameBoard.getCellAt(18, 19)));
