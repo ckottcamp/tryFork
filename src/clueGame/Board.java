@@ -10,8 +10,8 @@ public class Board {
 	private int numColumns;
 	private BoardCell[][] board = new BoardCell[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
 	private Map<Character, String> rooms = new HashMap<Character, String>();
-	private Map<BoardCell, Set<BoardCell>> adjMatrix;
-	private Set<BoardCell> targets;
+	private Map<BoardCell, Set<BoardCell>> adjMatrix = new HashMap<BoardCell, Set<BoardCell>>();
+	private Set<BoardCell> targets = new HashSet<BoardCell>();
 	private String boardConfigFile;
 	private String roomConfigFile;
 	
@@ -89,6 +89,8 @@ public class Board {
 		 *	v 			4
 		 *rows
 		 *
+		
+		
 		 
 		for (int x=0; x<numRows; x++) {
 			for (int y=0; y<numColumns; y++) {
@@ -102,7 +104,11 @@ public class Board {
 				if (x<numRows - 1){tempAdj.add(board[y][x+1]);}
 				// add 4
 				if (y<numColumns - 1){tempAdj.add(board[y+1][x]);}
+				
+				System.out.println(board[y][x]);
+				
 				adjMatrix.put(board[y][x], tempAdj);
+				
 			}
 		}
 		return;
