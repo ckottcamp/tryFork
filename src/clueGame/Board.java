@@ -79,6 +79,47 @@ public class Board {
 	}
 	
 	public void calcAdjacencies() {
+		
+		
+		
+		 
+		for (int y=0; y<numRows; y++) {
+			for (int x=0; x<numColumns; x++) {
+				Set<BoardCell> adj = new HashSet<BoardCell>();
+				
+				// add 1
+				if (x>0 && isAdj(board[y][x], board[y][x-1], 1) ){
+					adj.add(board[y][x-1]);
+				}
+				
+				// add 2
+				if (y>0 && isAdj(board[y][x], board[y-1][x], 2) ){
+					adj.add(board[y-1][x]);
+				}
+				
+				// add 3
+				if (x<numColumns-1 && isAdj(board[y][x], board[y][x+1], 3) ){
+					adj.add(board[y][x+1]);
+				}
+				
+				// add 4
+				if (y<numRows-1 && isAdj(board[y][x], board[y+1][x], 4) ){
+					adj.add(board[y+1][x]);
+				}
+				
+				
+				//System.out.println("Row: " + y + "; Column: " + x);
+				//System.out.println(adj);
+				adjMatrix.put(board[y][x], adj);
+				
+				
+			}
+		}
+		return;
+		
+	}
+	
+	private boolean isAdj(BoardCell c, BoardCell a, int loc) {
 		/*
 		 * COPIED FROM INTBOARD
 		 * 
@@ -89,53 +130,33 @@ public class Board {
 		 *rows
 		 */
 		
+		DoorDirection dir = DoorDirection.NONE;
+		switch (loc) {
+		case 1:
+			dir = DoorDirection.RIGHT;
+		case 2:
+			dir = DoorDirection.DOWN;
+		case 3:
+			dir = DoorDirection.LEFT;
+		case 4:
+			dir = DoorDirection.UP;
+		}
 		
-		 
-		for (int y=0; y<numRows; y++) {
-			for (int x=0; x<numColumns; x++) {
-				Set<BoardCell> adj = new HashSet<BoardCell>();
-				
-				// add 1
-				if (x>0 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && (board[y][x-1].isWalkway() || 
-						(board[y][x-1].isWalkway() && 
-						board[y][x-1].getDoorDirection() == DoorDirection.RIGHT)) ){
-					adj.add(board[y][x-1]);
-				}
-				
-				// add 2
-				if (y>0 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && (board[y-1][x].isWalkway() || 
-						(board[y-1][x].isDoorway() &&
-						board[y-1][x].getDoorDirection() == DoorDirection.DOWN)) ){
-					adj.add(board[y-1][x]);
-				}
-				
-				// add 3
-				if (x<numColumns-1 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && 
-						(board[y][x+1].isWalkway() || 
-						(board[y][x+1].isDoorway() &&
-						board[y][x+1].getDoorDirection() == DoorDirection.LEFT)) ){
-					adj.add(board[y][x+1]);
-				}
-				
-				// add 4
-				if (y<numRows-1 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && (board[y+1][x].isWalkway() || 
-						(board[y+1][x].isDoorway() &&
-						board[y+1][x].getDoorDirection() == DoorDirection.UP)) ){
-					adj.add(board[y+1][x]);
-				}
-				
-				
-				System.out.println("Row: " + y + "; Column: " + x);
-				System.out.println(adj);
-				adjMatrix.put(board[y][x], adj);
-				
-				
+		// is the current cell a door
+		if (c.isDoorway() && a.isWalkway()) {
+			// then the only adjacent calls can be walkway
+			return true;
+		}
+		// or current cell is a walkway?
+		else if (c.isWalkway()) {
+			if (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir)) {
+				return true;
 			}
 		}
-		return;
 		
-		
+		return false;
 	}
+	
 	
 	public void calcTargets(int row, int col, int pathlength) {
 		// This function will be completed, but at a later date during Section III		
