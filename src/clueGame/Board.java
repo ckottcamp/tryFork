@@ -97,27 +97,26 @@ public class Board {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
 				
 				// add 1
-				if (x>0){
+				if (x>0 && board[y][x-1].isWalkway()){
 					adj.add(board[y][x-1]);
 				}
 				
 				// add 2
-				if (y>0){
+				if (y>0 && board[y-1][x].isWalkway()){
 					adj.add(board[y-1][x]);
 				}
 				
 				// add 3
-				if (x<numRows - 1){
+				if (x<numColumns-1 && board[y][x+1].isWalkway()){
 					adj.add(board[y][x+1]);
 				}
 				
 				// add 4
-				if (y<numColumns - 1){
+				if (y<numRows-1 && board[y+1][x].isWalkway()){
 					adj.add(board[y+1][x]);
 				}
 				
 				
-				System.out.println(adj);
 				
 				adjMatrix.put(board[y][x], adj);
 				
