@@ -82,26 +82,15 @@ public class Board {
 		for (int y=0; y<numRows; y++) {
 			for (int x=0; x<numColumns; x++) {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
-				
 				// add 1
-				if (x>0 && isAdj(board[y][x], board[y][x-1], 1) ){
-					adj.add(board[y][x-1]);
-				}
+				if (x>0 && isAdj(board[y][x], board[y][x-1], 1) ){adj.add(board[y][x-1]);}
 				// add 2
-				if (y>0 && isAdj(board[y][x], board[y-1][x], 2) ){
-					adj.add(board[y-1][x]);
-				}
+				if (y>0 && isAdj(board[y][x], board[y-1][x], 2) ){adj.add(board[y-1][x]);}
 				// add 3
-				if (x<numColumns-1 && isAdj(board[y][x], board[y][x+1], 3) ){
-					adj.add(board[y][x+1]);
-				}
+				if (x<numColumns-1 && isAdj(board[y][x], board[y][x+1], 3) ){adj.add(board[y][x+1]);}
 				// add 4
-				if (y<numRows-1 && isAdj(board[y][x], board[y+1][x], 4) ){
-					adj.add(board[y+1][x]);
-				}
-				
-				//System.out.println("Row: " + y + "; Column: " + x);
-				//System.out.println(adj);
+				if (y<numRows-1 && isAdj(board[y][x], board[y+1][x], 4) ){adj.add(board[y+1][x]);}
+				// Fill Map
 				adjMatrix.put(board[y][x], adj);
 			}
 		}
@@ -109,16 +98,12 @@ public class Board {
 	}
 	
 	private boolean isAdj(BoardCell c, BoardCell a, int loc) {
-		/*
-		 * COPIED FROM INTBOARD
-		 * 
-		 * 	x->cols
+		/* 	x->cols
 		 *	y	 		2
 		 *	| 		1	c	3
 		 *	v 			4
 		 *rows
 		 */
-		
 		DoorDirection dir = DoorDirection.NONE;
 		switch (loc) {
 		case 1:
@@ -133,11 +118,12 @@ public class Board {
 		
 		// is the current cell a door
 		if (c.isDoorway() && a.isWalkway()) {
-			// then the only adjacent calls can be walkway
+			// then the only adjacent cells can be walkway
 			return true;
 		}
 		// or current cell is a walkway?
 		else if (c.isWalkway() && (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir))) {
+			// then adj cell must either be a walkway or a door with the correct orientation
 			return true;
 		}
 		else {
