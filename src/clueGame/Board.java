@@ -79,7 +79,6 @@ public class Board {
 	}
 	
 	public void calcAdjacencies() {
-		// This function will be completed, but at a later date during Section III
 		/*
 		 * COPIED FROM INTBOARD
 		 * 
@@ -97,21 +96,21 @@ public class Board {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
 				
 				// add 1
-				if (x>0 && board[y][x].isWalkway() && (board[y][x-1].isWalkway() || 
+				if (x>0 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && (board[y][x-1].isWalkway() || 
 						(board[y][x-1].isWalkway() && 
 						board[y][x-1].getDoorDirection() == DoorDirection.RIGHT)) ){
 					adj.add(board[y][x-1]);
 				}
 				
 				// add 2
-				if (y>0 && board[y][x].isWalkway() && (board[y-1][x].isWalkway() || 
+				if (y>0 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && (board[y-1][x].isWalkway() || 
 						(board[y-1][x].isDoorway() &&
 						board[y-1][x].getDoorDirection() == DoorDirection.DOWN)) ){
 					adj.add(board[y-1][x]);
 				}
 				
 				// add 3
-				if (x<numColumns-1 && board[y][x].isWalkway() && 
+				if (x<numColumns-1 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && 
 						(board[y][x+1].isWalkway() || 
 						(board[y][x+1].isDoorway() &&
 						board[y][x+1].getDoorDirection() == DoorDirection.LEFT)) ){
@@ -119,13 +118,14 @@ public class Board {
 				}
 				
 				// add 4
-				if (y<numRows-1 && board[y][x].isWalkway() && (board[y+1][x].isWalkway() || 
+				if (y<numRows-1 && (board[y][x].isWalkway() || board[y][x].isDoorway()) && (board[y+1][x].isWalkway() || 
 						(board[y+1][x].isDoorway() &&
 						board[y+1][x].getDoorDirection() == DoorDirection.UP)) ){
 					adj.add(board[y+1][x]);
 				}
 				
 				
+				System.out.println("Row: " + y + "; Column: " + x);
 				System.out.println(adj);
 				adjMatrix.put(board[y][x], adj);
 				
@@ -186,9 +186,8 @@ public class Board {
 		return numColumns;
 	}
 	
-	public Set<BoardCell> getAdjList(int x, int y) {
-		Set<BoardCell> adjList = new HashSet<BoardCell>();
-		return adjList;
+	public Set<BoardCell> getAdjList(int r, int c) {
+		return adjMatrix.get(board[r][c]);
 	}
 	
 	public Set<BoardCell> getTargets() {
