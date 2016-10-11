@@ -79,10 +79,6 @@ public class Board {
 	}
 	
 	public void calcAdjacencies() {
-		
-		
-		
-		 
 		for (int y=0; y<numRows; y++) {
 			for (int x=0; x<numColumns; x++) {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
@@ -91,32 +87,25 @@ public class Board {
 				if (x>0 && isAdj(board[y][x], board[y][x-1], 1) ){
 					adj.add(board[y][x-1]);
 				}
-				
 				// add 2
 				if (y>0 && isAdj(board[y][x], board[y-1][x], 2) ){
 					adj.add(board[y-1][x]);
 				}
-				
 				// add 3
 				if (x<numColumns-1 && isAdj(board[y][x], board[y][x+1], 3) ){
 					adj.add(board[y][x+1]);
 				}
-				
 				// add 4
 				if (y<numRows-1 && isAdj(board[y][x], board[y+1][x], 4) ){
 					adj.add(board[y+1][x]);
 				}
 				
-				
 				//System.out.println("Row: " + y + "; Column: " + x);
 				//System.out.println(adj);
 				adjMatrix.put(board[y][x], adj);
-				
-				
 			}
 		}
 		return;
-		
 	}
 	
 	private boolean isAdj(BoardCell c, BoardCell a, int loc) {
@@ -148,13 +137,12 @@ public class Board {
 			return true;
 		}
 		// or current cell is a walkway?
-		else if (c.isWalkway()) {
-			if (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir)) {
-				return true;
-			}
+		else if (c.isWalkway() && (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir))) {
+			return true;
 		}
-		
-		return false;
+		else {
+			return false;
+		}
 	}
 	
 	
