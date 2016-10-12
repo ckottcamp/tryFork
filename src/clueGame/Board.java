@@ -139,6 +139,7 @@ public class Board {
 	}
 
 	public void calcTargets(int row, int col, int pathLength) {
+		BoardCell c = getCellAt(row,col);
 		visitedList.clear();
 		targets.clear();
 		visitedList.add(getCellAt(row, col));
@@ -146,9 +147,9 @@ public class Board {
 		
 		if (getCellAt(row, col).isDoorway()) {
 			Set<BoardCell> temp = new HashSet<BoardCell>();
-			for (BoardCell c: targets) {
-				if (!c.isDoorway()) {
-					temp.add(c);
+			for (BoardCell t: targets) {
+				if (t.getInitial() != c.getInitial()) {
+					temp.add(t);
 				}
 			}
 			targets.clear();
