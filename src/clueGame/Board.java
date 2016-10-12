@@ -139,7 +139,9 @@ public class Board {
 	}
 
 	public void calcTargets(int row, int col, int pathLength) {
+		visitedList.clear();
 		targets.clear();
+		visitedList.add(getCellAt(row, col));
 		calcTarg(row, col, pathLength);
 		if (getCellAt(row, col).isDoorway()) {
 			if (row > 0) {
