@@ -145,6 +145,7 @@ public class Board {
 		visitedList.add(getCellAt(row, col));
 		calcTarg(row, col, pathLength);
 		
+		// remove doors of the same room if we are coming out of a room
 		if (getCellAt(row, col).isDoorway()) {
 			Set<BoardCell> temp = new HashSet<BoardCell>();
 			for (BoardCell t: targets) {
@@ -157,7 +158,11 @@ public class Board {
 		}
 		
 		
-		/*
+		/* NOTE:
+		// So you were removing any doors from the targets list if the current cell was a door.
+		// I changed this to if the current cell is a door, then remove any targets that are
+		// doors of the SAME ROOM. So that way you can in affect go from one room to another
+		// room. Look at above code for the fix.
 		if (getCellAt(row, col).isDoorway()) {
 			if (row > 0) {
 				if (targets.contains(getCellAt(row - 1, col)) && getCellAt(row - 1, col).isDoorway()) {
@@ -236,23 +241,4 @@ public class Board {
 		return targets;
 	}
 	
-	public static void main(String[] args){
-		Board board = new Board();
-		
-		// Board is singleton, get the only instance and initialize it		
-		board = Board.getInstance();
-		board.setConfigFiles("CR_ClueLayout.csv", "CR_ClueLegend.txt");		
-		board.initialize();
-		
-		Set<BoardCell> testList = board.getAdjList(4, 4);
-		//System.out.println(testList);
-		
-		board.calcTargets(21, 7, 2);
-		Set<BoardCell> targets= board.getTargets();
-		//System.out.println(targets);
-		//System.out.println(targets.size());
-		
-		
-		return;
-	}
 }
