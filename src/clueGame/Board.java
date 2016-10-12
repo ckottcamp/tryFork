@@ -83,6 +83,12 @@ public class Board {
 	}
 	
 	public void calcAdjacencies() {
+		/* 	x->cols
+		 *	y	 		2
+		 *	| 		1	c	3
+		 *	v 			4
+		 *rows
+		 */
 		for (int y=0; y<numRows; y++) {
 			for (int x=0; x<numColumns; x++) {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
@@ -98,7 +104,6 @@ public class Board {
 				adjMatrix.put(board[y][x], adj);
 			}
 		}
-		return;
 	}
 	
 	private boolean isAdj(BoardCell c, BoardCell a, int loc) {
@@ -109,6 +114,7 @@ public class Board {
 		 *rows
 		 */
 		DoorDirection dir = DoorDirection.NONE;
+		// determine the necessary door direction for the cell being evaluated around c
 		switch (loc) {
 		case 1:
 			dir = DoorDirection.RIGHT;
@@ -123,12 +129,13 @@ public class Board {
 			dir = DoorDirection.UP;
 			break;
 		}
-		// is the current cell a door
+		// if the current cell a door
 		if (c.isDoorway() && a.isWalkway()) {
-			// then the only adjacent cells can be walkway
+			// then only walkways can be adjacent cells
+			// note: you cannot have doors to two separate room directly next to each other
 			return true;
 		}
-		// or current cell is a walkway?
+		// or if current cell is a walkway
 		else if (c.isWalkway() && (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir)) ){
 			// then adj cell must either be a walkway or a door with the correct orientation
 			return true;
@@ -141,8 +148,11 @@ public class Board {
 	public void calcTargets(int row, int col, int pathLength) {
 		BoardCell c = getCellAt(row,col);
 		visitedList.clear();
+		// Clear out targets set b/c it changes for every cell for different pathLengths
+		// There is only one instance for the board so it needs to be cleared out each time
 		targets.clear();
 		visitedList.add(getCellAt(row, col));
+		// Recursively calculate all possible targets
 		calcTarg(row, col, pathLength);
 		
 		// remove doors of the same room if we are coming out of a room
@@ -153,39 +163,11 @@ public class Board {
 					temp.add(t);
 				}
 			}
+			// Note: Need temporary set because removing elements 
+			// 		during range based iteration throws an exception
 			targets.clear();
 			targets = temp;
 		}
-		
-		
-		/* NOTE:
-		// So you were removing any doors from the targets list if the current cell was a door.
-		// I changed this to if the current cell is a door, then remove any targets that are
-		// doors of the SAME ROOM. So that way you can in affect go from one room to another
-		// room. Look at above code for the fix.
-		if (getCellAt(row, col).isDoorway()) {
-			if (row > 0) {
-				if (targets.contains(getCellAt(row - 1, col)) && getCellAt(row - 1, col).isDoorway()) {
-					targets.remove(getCellAt(row - 1, col));
-				}
-			}
-			if (row < numRows - 1) {
-				if (targets.contains(getCellAt(row + 1, col)) && getCellAt(row + 1, col).isDoorway()) {
-					targets.remove(getCellAt(row + 1, col));
-				}
-			}
-			if (col > 0) {
-				if (targets.contains(getCellAt(row, col - 1)) && getCellAt(row, col - 1).isDoorway()) {
-					targets.remove(getCellAt(row, col - 1));
-				}
-			}
-			if (col < numColumns - 1) {
-				if (targets.contains(getCellAt(row, col + 1)) && getCellAt(row, col + 1).isDoorway()) {
-					targets.remove(getCellAt(row, col + 1));
-				}
-			}
-		}
-		*/
 	}	
 	
 	private void calcTarg(int row, int col, int pathLength) {
