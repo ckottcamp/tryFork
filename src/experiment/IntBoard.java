@@ -1,3 +1,9 @@
+/*
+ * Authors: Bane Sullivan & Max Watson
+ * CSCI 306: ClueGame
+ * October 2016
+ */
+
 package experiment;
 
 import java.util.*;
