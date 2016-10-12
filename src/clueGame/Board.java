@@ -141,25 +141,6 @@ public class Board {
 	public void calcTargets(int row, int col, int pathLength) {
 		targets.clear();
 		calcTarg(row, col, pathLength);
-	}	
-	
-	private void calcTarg(int row, int col, int pathLength) {
-		BoardCell tempCell = getCellAt(row, col);
-		visitedList.add(tempCell);
-		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
-			if (visitedList.contains(adjCell)) {
-				continue;
-			}
-			visitedList.add(adjCell);
-			if (pathLength == 1) {
-				targets.add(adjCell);
-				visitedList.remove(adjCell);
-				continue;
-			} else {
-				calcTarg(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
-			}
-			visitedList.remove(adjCell);
-		}
 		if (getCellAt(row, col).isDoorway()) {
 			if (row > 0) {
 				if (targets.contains(getCellAt(row - 1, col)) && getCellAt(row - 1, col).isDoorway()) {
@@ -181,6 +162,29 @@ public class Board {
 					targets.remove(getCellAt(row, col + 1));
 				}
 			}
+		}
+	}	
+	
+	private void calcTarg(int row, int col, int pathLength) {
+		BoardCell tempCell = getCellAt(row, col);
+		visitedList.add(tempCell);
+		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
+			if (visitedList.contains(adjCell)) {
+				continue;
+			}
+			visitedList.add(adjCell);
+			if (adjCell.isDoorway()) {
+				targets.add(adjCell);
+				continue;
+			}
+			if (pathLength == 1) {
+				targets.add(adjCell);
+				visitedList.remove(adjCell);
+				continue;
+			} else {
+				calcTarg(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
+			}
+			visitedList.remove(adjCell);
 		}
 		return;
 	}
