@@ -1,0 +1,572 @@
+# NOTE TO GRADER: We did some pair programming. Also, Bane did a lot more intermediate commits. It appears as though Bane made far more contributions in the log, but Bane just has a habit of commit-ing with comments on a lot of intermediate things that are probably unnecessary. We both contributed to the project evenly, even though the log does not reflect that.
+
+commit 3563cb8c84470756b43f4f20f42a71e1c05e61fe
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:35:59 2016 -0600
+
+    removed intboard stuff. it was useless and the tests no longer passed because we moved code around
+
+commit 00dd924e16a54d0e9710cae855fe2b8ec60148ba
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:33:40 2016 -0600
+
+    Added header to files to put authors names and date - because we have to do the code swap
+
+commit 119e36e43e4165ffc5303e2d7b8538955ddfc8cd
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:30:15 2016 -0600
+
+    Code cleanup and lots of comments
+
+commit 139340a6a0168b5332ba9340bafdec1226e0f99f
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:15:23 2016 -0600
+
+    removed the main method and added comments
+
+commit 14aa5b73bce0aaf2e2d90a7a27d600a0fd4ca0b1
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:12:11 2016 -0600
+
+    so we were testing to make sure targets would not include ANY doors if the current cell was a door. I changed this so that if the current cell is a door, then no doors for that same room will be added as targets
+
+commit 19a84cec4b3ba81f19df55977964bcc05081cf80
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:09:24 2016 -0600
+
+    reduced code to remove other doors from targets set if coming out of a door
+
+commit 4fad78136094b66f4597028f5dea8a06cfeb15a6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 23:08:42 2016 -0600
+
+    reoved annoying sys.out lines
+
+commit 420fcf87e6366368fc6a7d179bc1606c49ab0546
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Tue Oct 11 22:10:11 2016 -0600
+
+    Fixed final two tests. Error was in the our calcTargets function; the starting cell was not being added to the visited list initially, and this caused the issue of certain door targets not being included in the target list. Both sets of test now pass and the code should be ready for submission.
+
+commit 4e8545c10defc2c485522da4e303ccce338f75ce
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Tue Oct 11 21:40:53 2016 -0600
+
+    Added some more fixes. Moved the code to remove doors from the room just exited to a higher level of function call. Six steps and Five steps are still failing when run in the file but passing individually. Continuing to debug.
+
+commit 345f290657680a66e0e2ec3a05395d3138b06dbe
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Tue Oct 11 20:54:31 2016 -0600
+
+    Added statements to calcTarg to remove any door adjacent to the departure cell, if the departure cell is a door itself. This prevents the player from entering a room they just left through another door
+
+commit 82f9b5cff3f54f757b4327180e9945c3a8eefda7
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Tue Oct 11 20:40:54 2016 -0600
+
+    Continued to debug failing tests. Discovered some errors with there not being enough assertEquals statements in the test file. Also debugging an error where a test passes when run indivudally but not when the whole file is run. Also debugging errors with entering the room that was exited through another door.
+
+commit df0f49381cf52107d404a31175661c447c9a567c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 20:07:37 2016 -0600
+
+    added helper method to calcTargets so that the targets list got cleared befor every calculation. all but 2 tests pass now
+
+commit 3da1bb38c3fca2313f7752a5c42e0cc1b6aedf1c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 19:59:50 2016 -0600
+
+    comments
+
+commit 2b882419ed9381cfe6450003ea0e435c7b2bf3dd
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 19:54:20 2016 -0600
+
+    added breaks to switch statement for adj helper function. all adj tests pass now
+
+commit 9613bb0e7437ae1bed4ad741b7bb9da25b5a6427
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 19:41:27 2016 -0600
+
+    added a main method for testing
+
+commit 9bae1655930af50657cb0df6641c77b773779309
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 19:12:23 2016 -0600
+
+    comments
+
+commit 0abab39b71a93777d3d6c31eab475f383093d2ae
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 19:01:58 2016 -0600
+
+    fixed issue that i messed up with commits
+
+commit a1682852e666422cc72af23735cd52d63b3ab8a2
+Merge: e4e68d1 1bed5cf
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 18:53:33 2016 -0600
+
+    oh jeez
+
+commit e4e68d1e91bd437bfef60b156a756c503637dc07
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 11 18:52:45 2016 -0600
+
+    oh jeez, i forgot what i changed
+
+commit 1bed5cf248085cded2013dc9a2fbae8a48daf73c
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Tue Oct 11 18:51:16 2016 -0600
+
+    Completed the calcTargets function, but all targets tests are still failing. Some tests will pass when run individually but fail when run with the whole file. Still debugging
+
+commit 1915e33f97ac0e44d8fbf793b31486e8f509a3cd
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 19:29:45 2016 -0600
+
+    comments and simplification
+
+commit 4b3bca361a7176f3459af14143adbf52818b83b2
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 19:26:13 2016 -0600
+
+    simplified helper isadj method
+
+commit 6c24405b351853ce6480f69102b61bf1bf6dff29
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 19:21:59 2016 -0600
+
+    made a helper function for the adjCalc. it evaluates the relationship between two cells and gives a boolean response as to whether the one cell can be considered adjacent to another.
+
+commit 98986be78ce70d2f5677e9ebb477af46744610d7
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 18:52:42 2016 -0600
+
+    FIXED THE GETADJLIST FUNCTION. IT WAS RETURNING AN EMPRTY FUCKING SET EVERYTIME. TOOK ME FOREVER TO REALIZE.
+
+commit 32a95b914d398859eaab5c55e88318507ea037e2
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 18:37:46 2016 -0600
+
+    filled out the calcAdj method fully. It should be close to working. I have it printe out the set of adjacent cells and it appears to be correct, thought the tests are not passing.
+
+commit f9a93da390ec0361aa4bb4ebe3aa2ef1aed3f2bc
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 18:16:19 2016 -0600
+
+    tests if adj cells are walkways now. and also fixed another indexing issue. indexing should be good in calcAdj as of now. Still need more conditions to calc the adj cells
+
+commit 3c9557f37c05cb0133178ce21dffa02975dfe539
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 18:11:05 2016 -0600
+
+    fixed indexing issue that resulted in mixing up rows/cols in calcAdj function
+
+commit 5e4a816bdbc59664f3dacf73279c926a60724e14
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 17:56:28 2016 -0600
+
+    allocated space for class instance variables
+
+commit ae51a09a6228e86167cc2c6752b1519f1227ea10
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 17:50:43 2016 -0600
+
+    refactored file load tests to be name file init tests to be more consistent with CR's tests
+
+commit 8597bd8f21bb43397b3067b855790bf5814eccd6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 17:45:05 2016 -0600
+
+    restructure the throws in loadBoardConfig. There were several for loops that check things after import, now files are check as importing and aborts/throws the exception if a problem occurs. Saves time.
+
+commit 5bc3042763edd698db83dd5154aa1e83b4bba966
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 17:41:29 2016 -0600
+
+    comments
+
+commit f32c9e41ab00a8e5bc9f3e6d2d133b5a6e0c9ba2
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 17:36:32 2016 -0600
+
+    fixed the number of steps that was inputed to the calcTargets function in each of the testTarget functions.
+
+commit 7285ed0defc24def1005271241ca3500bba739a0
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Oct 10 17:29:47 2016 -0600
+
+    updated the commented out code in calcAdj
+
+commit e8ca9df0e78b7ffb15248afd38ba9864ee766338
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 16:01:41 2016 -0600
+
+    added the target tests and updated comments throughout the class
+
+commit bbcf95e0b96c887b319ae8245820655cd45193c3
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 16:01:05 2016 -0600
+
+    re-added CR's adjTarget tests class
+
+commit c16eff105d693eb7ebbe14dcd1f5ee0d1ea28dc5
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 16:00:07 2016 -0600
+
+    I changes CR's test class by accident. Deleted it
+
+commit 5ff07942b34b614b6776600e4011345cbeb56fae
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 15:58:37 2016 -0600
+
+    added the target tests and updated comments throughout the class
+
+commit 62106f2355266ebafe40accffca0bc96df86d64d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 15:57:54 2016 -0600
+
+    updated spreadsheet to reflect target tests
+
+commit 33ca2b5274fa132f25329b87e8add4e6d4d45157
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 14:30:38 2016 -0600
+
+    updated the calcTargets function to take cooridinates (row, col) instead of a cell to match CR's tests
+
+commit f310a066a49d7893276af44e51e3bc23e6f8aa03
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 14:28:50 2016 -0600
+
+    added the getTargets function
+
+commit 8c2fb8c5c1d080615425c527fba63e5e515c6a37
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 14:25:07 2016 -0600
+
+    udataed initialize to call calcAdjancencies for the board upon generation
+
+commit b9af34803adf0f6153fe590f6c280a05de26ca77
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 14:24:37 2016 -0600
+
+    updated spreadsheet to reflect the adjancecny tests.
+
+commit 6735404002380e0746702c9cbfc65b9020623a1d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 14:13:41 2016 -0600
+
+    refactored the adjancency target tests because the name was confusing me. I made it mor consistent to CR's tests
+
+commit 907d5eaae981758649615bc821cd5a72d36a2c29
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Oct 9 13:49:53 2016 -0600
+
+    copied over code from intBoard class to board class for us to use.
+
+commit 851ae18c8aace4874df9730c3035bfabe2fcb38b
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Oct 9 12:06:48 2016 -0600
+
+    Added files to git tracking and pushed to repo again. My bad
+
+commit fbfa8acfa8d98d26450a6331e81429225175ffd4
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Oct 9 12:03:18 2016 -0600
+
+    Added in stub for CalcAdjacencies and completed adjacency tests, as well as color coded the Excel appropriately
+
+commit 89956aa27f77efffc1ac0f212824d6c019351ae3
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Oct 9 10:31:41 2016 -0600
+
+    Quick test commit to check push/pull
+
+commit 19fc521cf815a0222b8e5d03434e8df97cd9bbae
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Oct 7 13:53:16 2016 -0600
+
+    comments
+
+commit 112584ddc5022df4cc8e8022f6fea238f65107c9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Oct 7 13:50:51 2016 -0600
+
+    Fixed the badcolumns exception and now passes tests.
+
+commit 077f23b1ee381a22f92aabd3c7f41dd51dd116bf
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Oct 7 13:35:28 2016 -0600
+
+    Added CR_EceceptionTests
+
+commit 2d753e63b4e8c4c5c6349cbf586f6523e55ef119
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 23:01:21 2016 -0600
+
+    comments
+
+commit 9880f55acdb8e2db4ac1aaa5248586f4fda006af
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 22:57:59 2016 -0600
+
+    Within the loadBoardConfig function, the wrong thing was being tested to throw the BadConfigFileException which just threw it regardless.
+
+commit 99890d1cd8b493049b11bf94dd18ed33814629ee
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 22:43:37 2016 -0600
+
+    fixed weird error that caused tests to fail. Had to do with testing car vs other and ignoring the case. Not ignoring the case caused the program to abort this the tests would fail. There is still a stack trace printed from the BadConfigException which appear tos be thrown at the end of the legend import function. Likely it is taking in the last blank line and if satisfies the if statement which throws an exception.
+
+commit cfb0de657e5dde4ed873eb7c62f762e683b54f0c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 22:40:23 2016 -0600
+
+    Color change
+
+commit e607b64198733f6c6fca9f6977457540275a71c8
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Thu Oct 6 21:27:15 2016 -0600
+
+    Added in the additional throws clauses to account for the exceptions test file. Encountered a strange error where a throws clause caused previously passing tests to fail. Still debugging
+
+commit 5f15571c41dea5670a48a079915aff59ac22f1e9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 15:45:48 2016 -0600
+
+    git is being weird and thinks I changed this file?
+
+commit 93a8be211a901e7cfe5e6308be7e2e5bc066048f
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 15:40:57 2016 -0600
+
+    Updated the BoardCell class. Implemented proper returns to all methods. All tests pass - ours and CR's
+
+commit e1e0444a701cee01d8584da4f72cadd7b45c9ca6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 15:30:53 2016 -0600
+
+    Fixed error that had to do with the memory allocation of the board instance variable in the Board class. LoadBoardConfig now works as suppose to. Changed the delimeter to correct value for the csv file import.
+
+commit 50baea1b16a48c2ef10f14f42981f050d67e26ab
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Oct 6 14:23:05 2016 -0600
+
+    commented out a portion of code in IntBoard class that was causeing there to be an error existing in the project.
+
+commit bb54cccff3aa08193ffc4535764292f8b6c85892
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Thu Oct 6 12:20:13 2016 -0600
+
+    Started to complete load config functions. Updated the BoardCell constructor and got passing tests. Still have a runtime error, currently debugging. File exceptions not fully handled
+
+commit 282c0b25a11bfd6028f59baa877056bab9e72d0f
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Wed Oct 5 22:51:17 2016 -0600
+
+    Made minor changes to our test comments and double-checked/corrected some test cells
+
+commit a49e4bf5ffbff22d84a7c7fbf39f41de7a0178c8
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Oct 5 16:20:34 2016 -0600
+
+    comments
+
+commit 941ae8b74918872b0d1e704204e114ef665c15c6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Oct 5 16:16:55 2016 -0600
+
+    Updated tests a bit with a few more tests that are explained in the OurTests.txt file
+
+commit 49116477ab1ca311ea00c68f0e441b148b3fdfaf
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Oct 5 16:07:45 2016 -0600
+
+    updated the testRooms function to test ALL rooms.
+
+commit acc0453074700189b9fb4eaa6b14aff2d5040583
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Oct 5 15:59:15 2016 -0600
+
+    Implemeted test methods and hardcoded the correct results for the FileLoadTests class
+
+commit 3b899d6633129b7295dd5c37957d431ccff8f96e
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Oct 5 15:34:25 2016 -0600
+
+    added a FileLoadTest class for our files. Made the clueBoard into a .csv file for import.
+
+commit 1dd3f3096dec606c323202aeb211c6ba060840c5
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Tue Oct 4 12:10:00 2016 -0600
+
+    Added files missed in initial commit
+
+commit fa1510e064e5b49802f87ee3f7f62dc0202e367c
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Tue Oct 4 12:07:47 2016 -0600
+
+    Removed compiler errors from tests by inserting appropriate function stubs.
+
+commit 66e34097c01cc286a4078fdad57b545541d7c6ec
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Tue Oct 4 11:57:46 2016 -0600
+
+    Updated BoardCell class with initial variable and methods. Created enum type DoorDirection and created custom exception to deal with bad configurations.
+
+commit cdcf32711de2125389b79c5387492d347f13715d
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Tue Oct 4 11:51:52 2016 -0600
+
+    Created clueGame package, filled out Board class with function stubs based on UML.
+
+commit 892ad1f5feb18befbf27b726a44ce7486c3fc284
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Oct 4 11:34:31 2016 -0600
+
+    added all sample files for board i assignment
+
+commit 3fae4bc819d8b0b8ef480f9f1c0ee9c4fa0617fb
+Author: Maxwell Watson <Maxwell Watson>
+Date:   Sun Oct 2 11:09:42 2016 -0600
+
+    Completed 'calcTargets' so that all tests passed. Used the psuedocode from lecture to fill out the algorithm.
+
+commit b67019c12f665127d5838fdb9b23e0a29553230d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sat Oct 1 18:36:00 2016 -0600
+
+    comments
+
+commit 5e186b6aa301cddf67e95345551fab81208c0496
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sat Oct 1 18:30:38 2016 -0600
+
+    comments
+
+commit 81f05cb79ddb512ab91261f45de3301ebbbe8831
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sat Oct 1 18:28:22 2016 -0600
+
+    updated constor for IntBoard to allocate memory for the array as well as give every cell a 'location'. updated types of sets to be hash. Made a constructor for BoardCell. All adjancency tests pass now.
+
+commit dbf9c7fd66485635f6c5a20c3523950d4aed36e9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sat Oct 1 17:17:46 2016 -0600
+
+    updated constructor and getters
+
+commit 648955ba9a8f774c4c5b485cba072d159a541e11
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 19:23:23 2016 -0600
+
+    updated constructor
+
+commit bd484082b937a7fb953d13d1e930b7821c3af118
+Author: Maxwell Watson <Maxwell Watson>
+Date:   Fri Sep 30 18:15:38 2016 -0600
+
+    Completed target test stubs for a total of six functions. Modified function definitions/calls in IntBoard.java to reflect the requirements spelled out in assignment. Program compiles but all tests fail.
+
+commit abdf5cc9f8d05703782e6ec76b9cf7a67cf5f474
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 15:20:13 2016 -0600
+
+    Updated BOARDSIZE to be 4 to reflect what the test functions are testing and added more structure to testTarget methods
+
+commit 1ffa591c6f8102d3bbcd05b80dabe15b0956870b
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 15:10:39 2016 -0600
+
+    Implemented structure for testTarget methods
+
+commit f778b6df281c9c51647eb93d76d9e1deb5b824ea
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 14:44:37 2016 -0600
+
+    begun implementing testTarget methods
+
+commit a72ece04f4b81a377973464f5b400dc6845747fa
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 14:36:55 2016 -0600
+
+    Fully implemented all adjancency test cases - all are currently failing
+
+commit 225f282848981b8984a5ea55dd50de8c3b1324d4
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 14:28:43 2016 -0600
+
+    added lines in each testAdjacency method to pull correct cell
+
+commit 0c3f75cd94363432c64a982f7a92530df92377f9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 14:26:12 2016 -0600
+
+    created/updated structure for all adjancency tests
+
+commit fc152ad5b351038d56bdc44c0eb14d2084fb902d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 14:19:37 2016 -0600
+
+    Added board size final static variable to IntBoard class.
+
+commit 344e251152b50c994c57b5a8d678481a77b3741c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 14:17:28 2016 -0600
+
+    update some of the test methods. Add the @Before method. Updated parameters to InBoard Class. Added a getCell method to IntBoard class.
+
+commit 659d8f6c22f8b4d328b58835ca7206871d83c60d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 13:49:05 2016 -0600
+
+    Put sample code in test class
+
+commit 2a8ea1585c553c15fd5c75c570f47127e3552c2b
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Sep 30 13:38:30 2016 -0600
+
+    Updated some variable names and got started on the constructor. There is a compile error commented out
+
+commit c84983fadb75b4da17f20ee84b87067a9bea433d
+Author: Maxwell Watson <Maxwell Watson>
+Date:   Thu Sep 29 21:54:48 2016 -0600
+
+    Added 'IntBoardTests.java'. Was not committed due to my error during initial commit
+
+commit 5fb1235a697beb6a1457d0af4b7e61991c38127f
+Author: Maxwell Watson <Maxwell Watson>
+Date:   Thu Sep 29 21:53:47 2016 -0600
+
+    Added instance variables and data structures for basic board structure. Recreated IntBoardTests as a JU test unit.
+
+commit 30df44677b834989a1c059e6640c0a65fc1f9b0c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Sep 29 17:20:49 2016 -0600
+
+    created files for BoardCell, IntBoard, and IntBoardTests in their appropriate packages
+
+commit 8726e6788d9ea2dfe642abbedabbce89f81d0742
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Sep 29 17:15:10 2016 -0600
+
+    Added Excel file and legend this time
+
+commit 0221676dc39980544d3f45a0c9363d3a657f5b34
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Sep 29 17:13:40 2016 -0600
+
+    added the Excel board file and legend to the repositpry
+
+commit 44e392a36b51d5ac9aa833ca432af26d728da5ea
+Author: banesullivan <chrsulli@mymail.mines.edu>
+Date:   Thu Sep 29 17:09:35 2016 -0600
+
+    Updated .gitignore
+
+commit 3df75ddcac7c7d20c942966fb8b860c228cf7558
+Author: banesullivan <chrsulli@mymail.mines.edu>
+Date:   Thu Sep 29 17:04:56 2016 -0600
+
+    Initial commit
