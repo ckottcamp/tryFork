@@ -143,6 +143,20 @@ public class Board {
 		targets.clear();
 		visitedList.add(getCellAt(row, col));
 		calcTarg(row, col, pathLength);
+		
+		if (getCellAt(row, col).isDoorway()) {
+			Set<BoardCell> temp = new HashSet<BoardCell>();
+			for (BoardCell c: targets) {
+				if (!c.isDoorway()) {
+					temp.add(c);
+				}
+			}
+			targets.clear();
+			targets = temp;
+		}
+		
+		
+		/*
 		if (getCellAt(row, col).isDoorway()) {
 			if (row > 0) {
 				if (targets.contains(getCellAt(row - 1, col)) && getCellAt(row - 1, col).isDoorway()) {
@@ -165,6 +179,7 @@ public class Board {
 				}
 			}
 		}
+		*/
 	}	
 	
 	private void calcTarg(int row, int col, int pathLength) {
