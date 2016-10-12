@@ -260,7 +260,7 @@ public class BoardAdjTargetTests {
 		assertTrue(targets.contains(gameBoard.getCellAt(14, 14)));
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 18)));
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 20)));
-		assertTrue(targets.contains(gameBoard.getCellAt(17, 29)));
+		assertTrue(targets.contains(gameBoard.getCellAt(17, 19)));
 		
 		targets.clear();
 		gameBoard.calcTargets(21, 19, 5);
@@ -277,7 +277,7 @@ public class BoardAdjTargetTests {
 	public void testTargetsSixSteps() {
 		gameBoard.calcTargets(13, 18, 6);
 		Set<BoardCell> targets= gameBoard.getTargets();
-		assertEquals(14, targets.size());
+		assertEquals(17, targets.size());
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 21)));
 		assertTrue(targets.contains(gameBoard.getCellAt(16, 17)));
 		assertTrue(targets.contains(gameBoard.getCellAt(18, 19)));
@@ -291,7 +291,10 @@ public class BoardAdjTargetTests {
 		assertTrue(targets.contains(gameBoard.getCellAt(10, 17)));
 		assertTrue(targets.contains(gameBoard.getCellAt(9, 16)));
 		assertTrue(targets.contains(gameBoard.getCellAt(9, 18)));
+		assertTrue(targets.contains(gameBoard.getCellAt(10, 18))); // This is the cell that should be in there but isn't
 		assertTrue(targets.contains(gameBoard.getCellAt(8, 17)));
+		assertTrue(targets.contains(gameBoard.getCellAt(12, 17)));
+		assertTrue(targets.contains(gameBoard.getCellAt(13, 16)));
 	
 		targets.clear();
 		gameBoard.calcTargets(21, 19, 6);
