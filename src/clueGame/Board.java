@@ -83,29 +83,6 @@ public class Board {
 		for (int y=0; y<numRows; y++) {
 			for (int x=0; x<numColumns; x++) {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
-			/*	if (x > 0) {
-					if ((board[y][x - 1].isDoorway() && board[y][x - 1].getDoorDirection() == DoorDirection.RIGHT) || board[y][x - 1].isWalkway()) {
-						adj.add(board[y][x - 1]);
-					}
-				}
-				
-				if (y > 0) {
-					if ((board[y - 1][x].isDoorway() && board[y - 1][x].getDoorDirection() == DoorDirection.DOWN) || board[y - 1][x].isWalkway()) {
-						adj.add(board[y - 1][x]);
-					}
-				}
-				
-				if (x < numColumns - 1) {
-					if ((board[y][x + 1].isDoorway() && board[y][x + 1].getDoorDirection() == DoorDirection.LEFT) || board[y][x + 1].isWalkway()) {
-						adj.add(board[y][x + 1]);
-					}
-				}
-				
-				if (y < numRows - 1) {
-					if ((board[y + 1][x].isDoorway() && board[y + 1][x].getDoorDirection() == DoorDirection.UP) || board[y + 1][x].isWalkway()) {
-						adj.add(board[y + 1][x]);
-					}
-				}*/
 				// add 1
 				if (x>0 && isAdj(board[y][x], board[y][x-1], 1) ){adj.add(board[y][x-1]);}
 				// add 2
@@ -156,22 +133,12 @@ public class Board {
 	}
 	
 	
-<<<<<<< HEAD
-	public void calcTargets(int row, int col, int pathlength) {
-		
-		/*
-		 * COPIED FROM INTBOARD
-		 * 
-		visitedList.add(startCell);
-		for (BoardCell tempCell : adjList.get(startCell)) {
-			if (visitedList.contains(tempCell)) {
-=======
+
 	public void calcTargets(int row, int col, int pathLength) {
 		BoardCell tempCell = getCellAt(row, col);
 		visitedList.add(tempCell);
 		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
 			if (visitedList.contains(adjCell)) {
->>>>>>> 1bed5cf248085cded2013dc9a2fbae8a48daf73c
 				continue;
 			}
 				visitedList.add(adjCell);
