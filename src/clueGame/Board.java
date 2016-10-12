@@ -138,6 +138,7 @@ public class Board {
 		BoardCell tempCell = getCellAt(row, col);
 		visitedList.add(tempCell);
 		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
+			System.out.println(adjCell);
 			if (visitedList.contains(adjCell)) {
 				continue;
 			}
