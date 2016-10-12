@@ -1,5 +1,8 @@
 package clueGame;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
@@ -138,10 +141,11 @@ public class Board {
 		BoardCell tempCell = getCellAt(row, col);
 		visitedList.add(tempCell);
 		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
-			System.out.println(adjCell);
 			if (visitedList.contains(adjCell)) {
+				//System.out.print("x");
 				continue;
 			}
+			//System.out.println("x");
 				visitedList.add(adjCell);
 				if (pathLength == 1) {
 					targets.add(adjCell);
@@ -150,7 +154,7 @@ public class Board {
 				} else {
 					calcTargets(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
 				}
-		//		visitedList.remove(adjCell);
+				visitedList.remove(adjCell);
 		}
 		return;		 
 	}	
@@ -182,5 +186,21 @@ public class Board {
 	
 	public Set<BoardCell> getTargets() {
 		return targets;
+	}
+	
+	public static void main(String[] args){
+		Board board = new Board();
+		
+		// Board is singleton, get the only instance and initialize it		
+		board = Board.getInstance();
+		board.setConfigFiles("CR_ClueLayout.csv", "CR_ClueLegend.txt");		
+		board.initialize();
+		
+		board.calcTargets(21, 7, 1);
+		Set<BoardCell> targets= board.getTargets();
+		System.out.println(targets);
+		
+		
+		return;
 	}
 }
