@@ -112,21 +112,24 @@ public class Board {
 		switch (loc) {
 		case 1:
 			dir = DoorDirection.RIGHT;
+			break;
 		case 2:
 			dir = DoorDirection.DOWN;
+			break;
 		case 3:
 			dir = DoorDirection.LEFT;
+			break;
 		case 4:
 			dir = DoorDirection.UP;
+			break;
 		}
-		
 		// is the current cell a door
 		if (c.isDoorway() && a.isWalkway()) {
 			// then the only adjacent cells can be walkway
 			return true;
 		}
 		// or current cell is a walkway?
-		else if (c.isWalkway() && (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir))) {
+		else if (c.isWalkway() && (a.isWalkway() || (a.isDoorway() && a.getDoorDirection() == dir)) ){
 			// then adj cell must either be a walkway or a door with the correct orientation
 			return true;
 		}
@@ -196,9 +199,15 @@ public class Board {
 		board.setConfigFiles("CR_ClueLayout.csv", "CR_ClueLegend.txt");		
 		board.initialize();
 		
-		board.calcTargets(21, 7, 1);
+		Set<BoardCell> testList = board.getAdjList(4, 4);
+		System.out.println(testList);
+		
+		
+		
+		board.calcTargets(21, 7, 2);
 		Set<BoardCell> targets= board.getTargets();
-		System.out.println(targets);
+		//System.out.println(targets);
+		//System.out.println(targets.size());
 		
 		
 		return;
