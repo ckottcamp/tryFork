@@ -11,6 +11,7 @@ public class Board {
 	private BoardCell[][] board = new BoardCell[MAX_BOARD_SIZE][MAX_BOARD_SIZE];
 	private Map<Character, String> rooms = new HashMap<Character, String>();
 	private Map<BoardCell, Set<BoardCell>> adjMatrix = new HashMap<BoardCell, Set<BoardCell>>();
+	private Set<BoardCell> visitedList = new HashSet<BoardCell>();
 	private Set<BoardCell> targets = new HashSet<BoardCell>();
 	private String boardConfigFile;
 	private String roomConfigFile;
@@ -82,6 +83,29 @@ public class Board {
 		for (int y=0; y<numRows; y++) {
 			for (int x=0; x<numColumns; x++) {
 				Set<BoardCell> adj = new HashSet<BoardCell>();
+			/*	if (x > 0) {
+					if ((board[y][x - 1].isDoorway() && board[y][x - 1].getDoorDirection() == DoorDirection.RIGHT) || board[y][x - 1].isWalkway()) {
+						adj.add(board[y][x - 1]);
+					}
+				}
+				
+				if (y > 0) {
+					if ((board[y - 1][x].isDoorway() && board[y - 1][x].getDoorDirection() == DoorDirection.DOWN) || board[y - 1][x].isWalkway()) {
+						adj.add(board[y - 1][x]);
+					}
+				}
+				
+				if (x < numColumns - 1) {
+					if ((board[y][x + 1].isDoorway() && board[y][x + 1].getDoorDirection() == DoorDirection.LEFT) || board[y][x + 1].isWalkway()) {
+						adj.add(board[y][x + 1]);
+					}
+				}
+				
+				if (y < numRows - 1) {
+					if ((board[y + 1][x].isDoorway() && board[y + 1][x].getDoorDirection() == DoorDirection.UP) || board[y + 1][x].isWalkway()) {
+						adj.add(board[y + 1][x]);
+					}
+				}*/
 				// add 1
 				if (x>0 && isAdj(board[y][x], board[y][x-1], 1) ){adj.add(board[y][x-1]);}
 				// add 2
@@ -90,7 +114,7 @@ public class Board {
 				if (x<numColumns-1 && isAdj(board[y][x], board[y][x+1], 3) ){adj.add(board[y][x+1]);}
 				// add 4
 				if (y<numRows-1 && isAdj(board[y][x], board[y+1][x], 4) ){adj.add(board[y+1][x]);}
-				// Fill Map
+				// Fill Map 
 				adjMatrix.put(board[y][x], adj);
 			}
 		}
@@ -132,34 +156,26 @@ public class Board {
 	}
 	
 	
-	public void calcTargets(int row, int col, int pathlength) {
-		// This function will be completed, but at a later date during Section III		
-		
-		/*
-		 * COPIED FROM INTBOARD
-		 * 
-		visitedList.add(startCell);
-		for (BoardCell tempCell : adjList.get(startCell)) {
-			if (visitedList.contains(tempCell)) {
+	public void calcTargets(int row, int col, int pathLength) {
+		BoardCell tempCell = getCellAt(row, col);
+		visitedList.add(tempCell);
+		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
+			if (visitedList.contains(adjCell)) {
 				continue;
-			} else {
-				visitedList.add(tempCell);
+			}
+				visitedList.add(adjCell);
 				if (pathLength == 1) {
-					targetList.add(tempCell);
-					visitedList.remove(tempCell);
+					targets.add(adjCell);
+					visitedList.remove(adjCell);
 					continue;
 				} else {
-					calcTargets(tempCell, pathLength - 1);
+					calcTargets(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
 				}
-					visitedList.remove(tempCell);
-			}
-			
-
+		//		visitedList.remove(adjCell);
 		}
-		return;
-		 */
+		return;		 
 	}	
-	
+
 	public BoardCell getCellAt(int i, int j) {
 		return board[i][j];
 	}

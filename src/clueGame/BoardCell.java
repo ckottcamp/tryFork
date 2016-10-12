@@ -1,6 +1,11 @@
 package clueGame;
 
 public class BoardCell {
+	@Override
+	public String toString() {
+		return "BoardCell [row=" + row + ", col=" + col + ", initial=" + initial + ", direction=" + direction + "]";
+	}
+
 	private int row;
 	private int col;
 	private char initial;
@@ -60,5 +65,12 @@ public class BoardCell {
 		return initial;
 	}
 
+	public int getRow() {
+		return row;
+	}
+	
+	public int getCol() {
+		return col;
+	}
 
 }
