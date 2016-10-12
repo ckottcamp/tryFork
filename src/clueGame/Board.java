@@ -137,8 +137,6 @@ public class Board {
 			return false;
 		}
 	}
-	
-	
 
 	public void calcTargets(int row, int col, int pathLength) {
 		BoardCell tempCell = getCellAt(row, col);
@@ -157,7 +155,7 @@ public class Board {
 				} else {
 					calcTargets(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
 				}
-				visitedList.remove(adjCell);
+				//visitedList.remove(adjCell);
 		}
 		return;		 
 	}	
@@ -200,9 +198,7 @@ public class Board {
 		board.initialize();
 		
 		Set<BoardCell> testList = board.getAdjList(4, 4);
-		System.out.println(testList);
-		
-		
+		//System.out.println(testList);
 		
 		board.calcTargets(21, 7, 2);
 		Set<BoardCell> targets= board.getTargets();
