@@ -150,15 +150,37 @@ public class Board {
 			if (visitedList.contains(adjCell)) {
 				continue;
 			}
-				visitedList.add(adjCell);
-				if (pathLength == 1) {
-					targets.add(adjCell);
-					visitedList.remove(adjCell);
-					continue;
-				} else {
-					calcTarg(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
-				}
+			visitedList.add(adjCell);
+			if (pathLength == 1) {
+				targets.add(adjCell);
 				visitedList.remove(adjCell);
+				continue;
+			} else {
+				calcTarg(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
+			}
+			visitedList.remove(adjCell);
+		}
+		if (getCellAt(row, col).isDoorway()) {
+			if (row > 0) {
+				if (targets.contains(getCellAt(row - 1, col)) && getCellAt(row - 1, col).isDoorway()) {
+					targets.remove(getCellAt(row - 1, col));
+				}
+			}
+			if (row < numRows - 1) {
+				if (targets.contains(getCellAt(row + 1, col)) && getCellAt(row + 1, col).isDoorway()) {
+					targets.remove(getCellAt(row + 1, col));
+				}
+			}
+			if (col > 0) {
+				if (targets.contains(getCellAt(row, col - 1)) && getCellAt(row, col - 1).isDoorway()) {
+					targets.remove(getCellAt(row, col - 1));
+				}
+			}
+			if (col < numColumns - 1) {
+				if (targets.contains(getCellAt(row, col + 1)) && getCellAt(row, col + 1).isDoorway()) {
+					targets.remove(getCellAt(row, col + 1));
+				}
+			}
 		}
 		return;
 	}
