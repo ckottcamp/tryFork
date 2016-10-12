@@ -139,26 +139,29 @@ public class Board {
 	}
 
 	public void calcTargets(int row, int col, int pathLength) {
+		targets.clear();
+		calcTarg(row, col, pathLength);
+	}	
+	
+	private void calcTarg(int row, int col, int pathLength) {
 		BoardCell tempCell = getCellAt(row, col);
 		visitedList.add(tempCell);
 		for (BoardCell adjCell : adjMatrix.get(tempCell)) {
 			if (visitedList.contains(adjCell)) {
-				//System.out.print("x");
 				continue;
 			}
-			//System.out.println("x");
 				visitedList.add(adjCell);
 				if (pathLength == 1) {
 					targets.add(adjCell);
 					visitedList.remove(adjCell);
 					continue;
 				} else {
-					calcTargets(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
+					calcTarg(adjCell.getRow(), adjCell.getCol(), pathLength - 1);
 				}
-				//visitedList.remove(adjCell);
+				visitedList.remove(adjCell);
 		}
-		return;		 
-	}	
+		return;
+	}
 
 	public BoardCell getCellAt(int i, int j) {
 		return board[i][j];
