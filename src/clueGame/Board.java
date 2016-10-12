@@ -133,7 +133,6 @@ public class Board {
 	
 	
 	public void calcTargets(int row, int col, int pathlength) {
-		// This function will be completed, but at a later date during Section III		
 		
 		/*
 		 * COPIED FROM INTBOARD
